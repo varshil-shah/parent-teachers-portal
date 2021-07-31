@@ -3,68 +3,88 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- STYLES CSS -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../common/style.css">
-
-    <!-- BOX ICONS CSS-->
-    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-    <title>Sidebar menu</title>
+    <title>HOME</title>
 </head>
 
-<body id="body">
-    <div class="l-navbar" id="navbar">
-        <nav class="nav">
-            <div>
-                <a href="#" class="nav__logo">
-                    <img src="assets/icons/logo.svg" alt="" class="nav__logo-icon">
-                    <span class="nav__logo-text">Bedimcode</span>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <img src="../uploads/1627658602pink-nature.jpg" alt="logo" class="header__img">
+            <a href="#" class="header__logo">Somaiya</a>
+
+            <div class="header__search">
+                <input type="search" placeholder="Search" class="header__input">
+                <i class='bx bx-search-alt header__icon'></i>
+            </div>
+
+            <div class="header__toggle">
+                <i class='bx bx-menu' id="header-toggle"></i>
+
+            </div>
+        </div>
+    </header>
+
+    <div class="nav" id="navbar">
+        <nav class="nav__container">
+            <div class="">
+                <a href="#" class="nav__link nav__logo">
+                    <i class="bx bx-disc nav__icon"></i>
+                    <span class="nav__logo-name">SOMAIYA</span>
                 </a>
 
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-chevron-right'></i>
+                <div class="nav__list">
+                    <div class="nav__items">
+                        <h3 class="nav__subtitle">Profile</h3>
+                        <a href="#" class="nav__link">
+                            <i class="bx bx-home nav__icon"></i>
+                            <span class="nav__name">Home</span>
+                        </a>
+
+                        <a href="#" class="nav__link">
+                            <i class="bx bx-user nav__icon"></i>
+                            <span class="nav__name">Profile</span>
+                        </a>
+
+                        <a href="#" class="nav__link">
+                            <i class="bx bx-message-rounded nav__icon"></i>
+                            <span class="nav__name">Message</span>
+                        </a>
+                    </div>
                 </div>
 
-                <ul class="nav__list">
-                    <a href="#" class="nav__link active">
-                        <i class='bx bx-grid-alt nav__icon'></i>
-                        <span class="nav__text">Home</span>
-                    </a>
-                    <a href="#" class="nav__link">
-                        <i class='bx bx-user nav__icon'></i>
-                        <span class="nav__text">User</span>
-                    </a>
-                    <a href="#" class="nav__link">
-                        <i class='bx bx-bell nav__icon'></i>
-                        <span class="nav__text">Notification</span>
-                    </a>
-                    <a href="#" class="nav__link">
-                        <i class='bx bx-heart nav__icon'></i>
-                        <span class="nav__text">Favorites</span>
-                    </a>
-                    <a href="#" class="nav__link">
-                        <i class='bx bx-bookmark nav__icon'></i>
-                        <span class="nav__text">Saved</span>
-                    </a>
-                    <a href="#" class="nav__link">
-                        <i class='bx bx-message-rounded nav__icon'></i>
-                        <span class="nav__text">Chat</span>
-                    </a>
-                </ul>
+                <div class="nav__list">
+                    <div class="nav__items">
+                        <h3 class="nav__subtitle">Menu</h3>
+                        <a href="#" class="nav__link">
+                            <i class="bx bx-home nav__icon"></i>
+                            <span class="nav__name">Home</span>
+                        </a>
+
+                        <a href="#" class="nav__link">
+                            <i class="bx bx-user nav__icon"></i>
+                            <span class="nav__name">Profile</span>
+                        </a>
+
+                        <a href="#" class="nav__link">
+                            <i class="bx bx-message-rounded nav__icon"></i>
+                            <span class="nav__name">Message</span>
+                        </a>
+                    </div>
+                </div>
+
             </div>
-            <a href="#" class="nav__link">
-                <i class='bx bx-log-out-circle nav__icon'></i>
-                <span class="nav__text">Close</span>
+            <a href="#" class="nav__link nav__logout">
+                <i class="bx bx-log-out nav__icon"></i>
+                <span>Logout</span>
             </a>
         </nav>
     </div>
-    <h2>Unete al canal</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Atque optio odio officiis nostrum nesciunt quam libero.
-        Cumque impedit veritatis, quibusdam nulla accusantium illo.
-        In velit laboriosam obcaecati quaerat eaque beatae.</p>
+
+    <script src="../javascript/main.js"></script>
 </body>
-<!-- MAIN JS -->
-<script src="../javascript/main.js"></script>
 
 </html>
