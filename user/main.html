@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="../common/style.css">
     <title>HOME</title>
 </head>
@@ -13,16 +13,15 @@
 <body>
     <header class="header">
         <div class="header__container">
-            <img src="../uploads/1627658602pink-nature.jpg" alt="logo" class="header__img">
-            <a href="#" class="header__logo">Somaiya</a>
-
+            <a href="#" class="header__logo logo">Somaiya</a>
+            <h3 class="page__name text__color">Announcement Page</h3>
             <div class="header__search">
                 <input type="search" placeholder="Search" class="header__input">
-                <i class='bx bx-search-alt header__icon'></i>
+                <i class="fas fa-search header__icon"></i>
             </div>
 
             <div class="header__toggle">
-                <i class='bx bx-menu' id="header-toggle"></i>
+                <i class="fas fa-bars nav__icon" id="header-toggle"></i>
 
             </div>
         </div>
@@ -32,57 +31,113 @@
         <nav class="nav__container">
             <div class="">
                 <a href="#" class="nav__link nav__logo">
-                    <i class="bx bx-disc nav__icon"></i>
-                    <span class="nav__logo-name">SOMAIYA</span>
+                    <i class="fas fa-university fa-2x text__color"></i>
+                    <span class="nav__logo-name text__color">SOMAIYA</span>
                 </a>
 
                 <div class="nav__list">
                     <div class="nav__items">
-                        <h3 class="nav__subtitle">Profile</h3>
                         <a href="#" class="nav__link">
-                            <i class="bx bx-home nav__icon"></i>
-                            <span class="nav__name">Home</span>
+                            <i class="fas fa-bullhorn nav__icon"></i>
+                            <span class="nav__name">Announcement</span>
                         </a>
 
                         <a href="#" class="nav__link">
-                            <i class="bx bx-user nav__icon"></i>
-                            <span class="nav__name">Profile</span>
+                            <i class="fas fa-ban nav__icon"></i>
+                            <span class="nav__name">Defaulters</span>
                         </a>
 
                         <a href="#" class="nav__link">
-                            <i class="bx bx-message-rounded nav__icon"></i>
+                            <i class="far fa-paper-plane nav__icon"></i>
+                            <span class="nav__name">Notice</span>
+                        </a>
+
+                        <a href="#" class="nav__link">
+                            <i class="fas fa-book nav__icon"></i>
+                            <span class="nav__name">Test Marks</span>
+                        </a>
+
+                        <a href="#" class="nav__link">
+                            <i class="far fa-comments nav__icon"></i>
                             <span class="nav__name">Message</span>
                         </a>
-                    </div>
-                </div>
-
-                <div class="nav__list">
-                    <div class="nav__items">
-                        <h3 class="nav__subtitle">Menu</h3>
-                        <a href="#" class="nav__link">
-                            <i class="bx bx-home nav__icon"></i>
-                            <span class="nav__name">Home</span>
-                        </a>
 
                         <a href="#" class="nav__link">
-                            <i class="bx bx-user nav__icon"></i>
-                            <span class="nav__name">Profile</span>
-                        </a>
-
-                        <a href="#" class="nav__link">
-                            <i class="bx bx-message-rounded nav__icon"></i>
-                            <span class="nav__name">Message</span>
+                            <i class="fas fa-sign-out-alt nav__icon"></i>
+                            <span class="nav__name">Logout</span>
                         </a>
                     </div>
                 </div>
 
             </div>
-            <a href="#" class="nav__link nav__logout">
-                <i class="bx bx-log-out nav__icon"></i>
-                <span>Logout</span>
-            </a>
         </nav>
     </div>
+
+    <main class="main__body">
+        <div class="card__container">
+            <div class="card">
+                <h4 class="card__header">Semester starts from 1st August</h4>
+                <p class="card__msg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate perferendis
+                    tenetur voluptatum,
+                    debitis nisi minima reiciendis reprehenderit dignissimos dolorem, culpa, eius esse accusamus
+                    dolor
+                    iure est delectus incidunt eum totam.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic iste pariatur, provident quia in
+                    velit
+                    dolorem nisi optio numquam, fugit unde ad nostrum voluptatum ducimus. Error voluptatibus
+                    repellat
+                    velit quo. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos id iusto unde sed, nam
+                    porro officia sequi nihil libero natus voluptas esse commodi reiciendis deleniti optio quod
+                    dignissimos sit soluta.
+                </p>
+                <div class="card__details">
+                    <p class="date">1 Aug 2021</p>
+                    <p class="teacher">Charulata Ingle</p>
+                </div>
+                <div class="card__details">
+                    <button class="download__pdf">Download PDF</button>
+                    <a href="#"> <i class="fas fa-trash-alt trash__icon"></i></a>
+                </div>
+            </div>
+
+            <div class="add__icon">
+                <i class="fas fa-plus" id="addIcon"></i>
+            </div>
+        </div>
+    </main>
+
+    <!-- POP-UP FORM -->
+    <div class="modal__form hidden">
+        <div class="close__heading">
+            <h3>Add your notice</h3>
+            <i class="fas fa-times" id="closeButton"></i>
+        </div>
+        <form action="#" method="POST">
+            <div class="form__control">
+                <label for="">Title</label>
+                <input type="text" placeholder="Enter your title">
+            </div>
+            <div class="form__control">
+                <label for="">Message</label>
+                <textarea placeholder="Type your message..." name="message" id="" cols="10" rows="3"></textarea>
+            </div>
+            <div class="form__control">
+                <label for="">Notice type</label>
+                <select name="" id="noticeType">
+                    <option value="announcement">Accouncement</option>
+                    <option value="defaulters">Defaulters</option>
+                    <option value="notice">Notice</option>
+                    <option value="test_marks">Test marks</option>
+                </select>
+            </div>
+            <div class="form__control">
+                <label for="">Attach your PDF file</label>
+                <input type="file">
+            </div>
+            <button type="submit" class="post__button">POST</button>
+        </form>
+    </div>
+    <div class="overlay hidden"></div>
 
     <script src="../javascript/main.js"></script>
 </body>
