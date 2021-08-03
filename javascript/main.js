@@ -31,5 +31,9 @@ const closeModal = () => {
   overlay.classList.add("hidden");
 };
 
-openModalIcon.addEventListener("click", showModal);
-closeModalIcon.addEventListener("click", closeModal);
+try {
+  openModalIcon.addEventListener("click", showModal);
+  closeModalIcon.addEventListener("click", closeModal);
+} catch (error) {
+  console.log(error.message);
+}

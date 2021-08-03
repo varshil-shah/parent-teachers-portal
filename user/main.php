@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['email'])) {
+        ?>
+            <script>
+                location.replace('../forms/sign-in.php');
+            </script>
+        <?php
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,22 +48,22 @@
 
                 <div class="nav__list">
                     <div class="nav__items">
-                        <a href="#" class="nav__link">
+                        <a href="./main.php?page=announcements" class="nav__link">
                             <i class="fas fa-bullhorn nav__icon"></i>
                             <span class="nav__name">Announcement</span>
                         </a>
 
-                        <a href="#" class="nav__link">
+                        <a href="./main.php?page=defaulters" class="nav__link">
                             <i class="fas fa-ban nav__icon"></i>
                             <span class="nav__name">Defaulters</span>
                         </a>
 
-                        <a href="#" class="nav__link">
+                        <a href="./main.php?page=notices" class="nav__link">
                             <i class="far fa-paper-plane nav__icon"></i>
                             <span class="nav__name">Notice</span>
                         </a>
 
-                        <a href="#" class="nav__link">
+                        <a href="./main.php?page=test_marks" class="nav__link">
                             <i class="fas fa-book nav__icon"></i>
                             <span class="nav__name">Test Marks</span>
                         </a>
@@ -62,47 +73,20 @@
                             <span class="nav__name">Message</span>
                         </a>
 
-                        <a href="#" class="nav__link">
+                        <a href="../php/logout.php" class="nav__link">
                             <i class="fas fa-sign-out-alt nav__icon"></i>
                             <span class="nav__name">Logout</span>
                         </a>
                     </div>
                 </div>
-
             </div>
         </nav>
     </div>
 
     <main class="main__body">
         <div class="card__container">
-            <div class="card">
-                <h4 class="card__header">Semester starts from 1st August</h4>
-                <p class="card__msg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate perferendis
-                    tenetur voluptatum,
-                    debitis nisi minima reiciendis reprehenderit dignissimos dolorem, culpa, eius esse accusamus
-                    dolor
-                    iure est delectus incidunt eum totam.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic iste pariatur, provident quia in
-                    velit
-                    dolorem nisi optio numquam, fugit unde ad nostrum voluptatum ducimus. Error voluptatibus
-                    repellat
-                    velit quo. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos id iusto unde sed, nam
-                    porro officia sequi nihil libero natus voluptas esse commodi reiciendis deleniti optio quod
-                    dignissimos sit soluta.
-                </p>
-                <div class="card__details">
-                    <p class="date">1 Aug 2021</p>
-                    <p class="teacher">Charulata Ingle</p>
-                </div>
-                <div class="card__details">
-                    <button class="download__pdf">Download PDF</button>
-                    <a href="#"> <i class="fas fa-trash-alt trash__icon"></i></a>
-                </div>
-            </div>
 
-            <div class="add__icon">
-                <i class="fas fa-plus" id="addIcon"></i>
-            </div>
+        <!-- ADDING DYNAMIC NOTICES -->
         </div>
     </main>
 
@@ -114,32 +98,45 @@
         </div>
         <form action="#" method="POST">
             <div class="form__control">
-                <label for="">Title</label>
-                <input type="text" placeholder="Enter your title">
+                <label for="title">Title</label>
+                <input required type="text" name="title" id="title" placeholder="Enter your title">
             </div>
             <div class="form__control">
-                <label for="">Message</label>
-                <textarea placeholder="Type your message..." name="message" id="" cols="10" rows="3"></textarea>
+                <label for="message">Message</label>
+                <textarea required name="message" id="message" placeholder="Type your message..." name="message" id="" cols="10"
+                    rows="5"></textarea>
             </div>
             <div class="form__control">
                 <label for="">Notice type</label>
-                <select name="" id="noticeType">
-                    <option value="announcement">Accouncement</option>
+                <select required name="notice_type" id="noticeType">
+                    <option value="announcements">Accouncement</option>
                     <option value="defaulters">Defaulters</option>
-                    <option value="notice">Notice</option>
+                    <option value="notices">Notice</option>
                     <option value="test_marks">Test marks</option>
                 </select>
             </div>
             <div class="form__control">
-                <label for="">Attach your PDF file</label>
-                <input type="file">
+                <label for="myFile">Attach your PDF file</label>
+                <input type="file" name="my_file" id="myFile">
             </div>
             <button type="submit" class="post__button">POST</button>
         </form>
     </div>
     <div class="overlay hidden"></div>
 
+    <?php
+        if(isset($_SESSION['role']) && $_SESSION['role'] == 'teacher') {
+            ?>
+                <div class="add__icon">
+                    <i class="fas fa-plus" id="addIcon"></i>
+                </div>
+            <?php
+        }
+    ?>
+
     <script src="../javascript/main.js"></script>
+    <script src="../javascript/notices.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>

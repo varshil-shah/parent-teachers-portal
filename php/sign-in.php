@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include_once './config.php';
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
@@ -11,6 +12,9 @@
                 $row = mysqli_fetch_assoc($search_email_query);
                 $databasePassword = $row['password'];
                 if(password_verify($password, $databasePassword) && $row['status'] == 'active') {
+                    $_SESSION['role'] = $row['role'];
+                    $_SESSION['email'] = $row['email'];
+                    $_SESSION['uniqueId'] = $row['uniqueId'];
                     echo 'success';
                 }else {
                     echo "Password isn't matching or OTP is not verified";

@@ -23,6 +23,8 @@
                 $from = "From: K.J Somaiya Polytechnic<jerryshah1004@gmail.com>";
                 if($insert_query && mail($email, $subject, $msg, $from)) {
                     $_SESSION['email'] = $email;
+                    $_SESSION['role'] = $role;
+                    $_SESSION['uniqueId'] = $unique_id;
                     echo "success";
                 }else {
                     echo "Failed to insert data";

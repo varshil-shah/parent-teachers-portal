@@ -7,13 +7,14 @@ form.onsubmit = (e) => {
 
 loginButton.addEventListener("click", () => {
   let xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost/Chat%20App/php/sign-in.php", true);
+  xhr.open("POST", "http://localhost/ptp/php/sign-in.php", true);
   xhr.onload = () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
         let data = xhr.response;
         if (data === "success") {
-          location.href = "http://localhost/Chat%20App/user/main.html";
+          location.href =
+            "http://localhost/ptp/user/main.php?page=announcements";
         } else {
           swal({
             title: "SIGNIN MESSAGE",

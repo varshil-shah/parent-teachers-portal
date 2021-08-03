@@ -9,14 +9,14 @@ form.onsubmit = (e) => {
 signupButton.addEventListener("click", () => {
   const xhr = new XMLHttpRequest();
   displayLoading();
-  xhr.open("POST", "http://localhost/Chat%20App/php/insert-data.php", true);
+  xhr.open("POST", "http://localhost/ptp/php/insert-data.php", true);
   xhr.onload = () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
         let data = xhr.response;
         hideLoading();
         if (data === "success") {
-          location.href = "http://localhost/Chat%20App/forms/otp.php";
+          location.href = "http://localhost/ptp/forms/otp.php";
         } else {
           swal({
             title: "SIGNUP MESSAGE",

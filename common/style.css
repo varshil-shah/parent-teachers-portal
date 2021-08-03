@@ -234,9 +234,11 @@ img {
 }
 
 /* main body */
+.main__body {
+  position: relative;
+}
 
 .card__container {
-  position: relative;
   max-height: 85vh;
   /* margin: 5px 15px; */
   width: auto;
@@ -258,15 +260,16 @@ img {
   margin: 5px 5px;
   line-height: 1.5;
   font-size: 0.9em;
-  padding: 15px;
+  padding: 10px;
 }
 
 .card__container .card .card__details {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.card__container .add__icon {
+.add__icon {
   position: fixed;
   top: 85%;
   right: 5%;
@@ -327,9 +330,10 @@ img {
 }
 
 .card .card__details .teacher {
-  font-size: 16px;
+  font-size: 14px;
   color: #6923d0;
   font-weight: bold;
+  word-break: break-all;
 }
 
 .card .card__details .download__pdf {
@@ -337,7 +341,7 @@ img {
   outline: none;
   padding: 8px 10px;
   background-color: crimson;
-  font-size: 16px;
+  font-size: 13px;
   color: #fff;
   border-radius: 10px;
   cursor: pointer;
@@ -374,6 +378,7 @@ img {
 .modal__form form label {
   font-size: 18px;
   color: #000;
+  font-weight: 500;
 }
 
 .modal__form form select,
@@ -398,8 +403,11 @@ img {
   border: none;
   background: crimson;
   color: #fff;
-  padding: 10px 12px;
+  padding: 8px 20px;
+  font-size: 16px;
+  font-weight: 500;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 #closeButton {
