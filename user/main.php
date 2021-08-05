@@ -25,7 +25,9 @@
     <header class="header">
         <div class="header__container">
             <a href="#" class="header__logo logo">Somaiya</a>
-            <h3 class="page__name text__color">Announcement Page</h3>
+            <h3 class="page__name text__color">
+            <?php include '../php/get-current-url.php'; echo getName(); ?> 
+            Page</h3>
             <div class="header__search">
                 <input type="search" placeholder="Search" class="header__input">
                 <i class="fas fa-search header__icon"></i>

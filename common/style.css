@@ -326,7 +326,18 @@ img {
 }
 
 .card .card__msg::-webkit-scrollbar {
-  display: none;
+  width: 8px;
+  margin: 0px 10px;
+}
+
+.card .card__msg::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 50px;
+}
+
+.card .card__msg::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, #ff4331, #d31a50);
+  border-radius: 50px;
 }
 
 .card .card__details .teacher {
@@ -430,6 +441,17 @@ img {
 .hidden {
   display: none;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* SEARCH CONTENT */
 
 @media screen and (min-width: 320px) {
   .header__search {

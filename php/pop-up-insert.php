@@ -6,7 +6,12 @@
     $message = mysqli_real_escape_string($con, $_POST['message']);
     $uniqueId = $_SESSION['uniqueId'];
     $noticeType = mysqli_real_escape_string($con, $_POST['notice_type']);
-    if(!empty($title) && !empty($message)) {
+    $email = $_SESSION['email'];
+    $search_fullName = "SELECT * FROM signup WHERE email = '$email' && role = 'teacher'";
+    $search_fullName_query = mysqli_query($con, $search_fullName);
+    if(!empty($title) && !empty($message) && mysqli_num_rows($search_fullName_query) > 0) {
+        $row = mysqli_fetch_assoc($search_fullName_query);
+        $teacher = $row['fullName'];
         if(isset($_FILES['my_file'])) {
             $file_name = $_FILES['my_file']['name'];
             $file_type = $_FILES['my_file']['type'];
@@ -20,8 +25,8 @@
                 $new_file_name = time().$file_name;
                 $date = date("j M, Y");
                 if(move_uploaded_file($tmp_name,"../uploads/".$new_file_name)) {
-                    $insert = "INSERT INTO notice(uniqueId,title,message,date, pdfFile, pageName)
-                    VALUES('$uniqueId','$title','$message','$date','$new_file_name','$noticeType')";
+                    $insert = "INSERT INTO notice(uniqueId,title,message,date, pdfFile, pageName,teacher)
+                    VALUES('$uniqueId','$title','$message','$date','$new_file_name','$noticeType','$teacher')";
                     $insert_query = mysqli_query($con, $insert);
                     if($insert_query) {
                         echo "Notice added successfully";

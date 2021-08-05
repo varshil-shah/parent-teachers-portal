@@ -1,3 +1,4 @@
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <?php
     session_start();
     include_once './config.php';
@@ -6,9 +7,18 @@
         $delete = "DELETE FROM notice WHERE nid = '$id'";
         $delete_query = mysqli_query($con, $delete);
         if($delete_query) {
-            echo "Notice deleted successfully";
+            ?>
+                <script>
+                    // alert('Notice has been deleted');
+                    location.replace('../user/main.php?page=announcements');
+                </script>
+            <?php
         }else {
-            echo "Failed to delete notice";
+            ?>
+                <script>
+                    alert('Failed to delete notice');
+                </script>
+            <?php
         }
     }else {
         session_destroy();

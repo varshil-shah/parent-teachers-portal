@@ -13,6 +13,15 @@
 
         $link .= $_SERVER['PHP_SELF'];
 
+        $link .= basename($_SERVER['REQUEST_URI']);
+
         return $link;
+    }
+
+    function getName() {
+        $url = getCurrentUrl();
+        $url_components = parse_url($url);
+        parse_str($url_components['query'], $params);
+        return ucfirst($params['page']);
     }
 ?>

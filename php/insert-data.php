@@ -7,7 +7,6 @@
     $role = mysqli_real_escape_string($con, $_POST['role']);
     $otp = rand(111111,999999);
     $unique_id = rand(time(), 100000000);
-
     if(!empty($fullName) && !empty($email) && !empty($password)) {
         if(filter_var($email, FILTER_VALIDATE_EMAIL) && filterEmail($email)) {
             $email_search = mysqli_query($con, "SELECT email FROM signup WHERE email = '$email'");
