@@ -7,6 +7,7 @@
     $display_query = mysqli_query($con, $display);
     $result = "";
     if(mysqli_num_rows($display_query) > 0) {
+
         while($row = mysqli_fetch_assoc($display_query)) {
             $result .= '
             <div class="card">

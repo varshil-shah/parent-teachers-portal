@@ -36,7 +36,7 @@ let displayLoading = () => {
   loading.classList.add("display");
   setTimeout(() => {
     loading.classList.remove("display");
-  }, 5000);
+  }, 15000);
 };
 
 let hideLoading = () => {

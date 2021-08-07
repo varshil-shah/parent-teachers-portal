@@ -249,10 +249,6 @@ img {
   background-color: var(--body-color);
 }
 
-.card__container::-webkit-scrollbar {
-  display: none;
-}
-
 .card__container .card {
   border-radius: 5px;
   box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
@@ -267,6 +263,10 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.card__container::-webkit-scrollbar {
+  display: none;
 }
 
 .add__icon {
@@ -321,7 +321,7 @@ img {
 .card .card__msg {
   max-height: 150px;
   overflow-x: auto;
-  font-size: 14px;
+  font-size: 16px;
   color: #000;
 }
 
@@ -338,6 +338,7 @@ img {
 .card .card__msg::-webkit-scrollbar-thumb {
   background: linear-gradient(to right, #ff4331, #d31a50);
   border-radius: 50px;
+  cursor: pointer;
 }
 
 .card .card__details .teacher {
@@ -350,12 +351,14 @@ img {
 .card .card__details .download__pdf {
   border: none;
   outline: none;
-  padding: 8px 10px;
+  padding: 8px;
   background-color: crimson;
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: bold;
   color: #fff;
   border-radius: 10px;
   cursor: pointer;
+  letter-spacing: 0.5px;
 }
 
 /* MODAL */
@@ -449,6 +452,7 @@ img {
   width: 90vw;
   font-size: 22px;
   font-weight: bold;
+  pointer-events: none;
 }
 
 /* SEARCH CONTENT */

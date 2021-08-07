@@ -19,6 +19,7 @@
                 </div>
                 <div class="formBx">
                     <form action="">
+                        <div id="loading"></div>
                         <h3 class="logo">Somaiya Polytechnic</h3>
                         <h2>SIGN IN</h2>
                         <input required autocomplete="off" type="email" placeholder="Enter email address" name="email" id="email">
