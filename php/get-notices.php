@@ -10,7 +10,7 @@
 
         while($row = mysqli_fetch_assoc($display_query)) {
             $result .= '
-            <div class="card">
+            <div class="card" onmouseover="clearPageRefreshInterval(this)" onmouseout="setPageRefreshInterval(this)">
                 <h4 class="card__header">'.$row["title"].'</h4>
                 <p class="card__msg">'.$row["message"].'</p>
                 <div class="card__details">
@@ -30,7 +30,7 @@
 
     function checkRole($row) {
         if($_SESSION['role'] == 'teacher') {
-            return '<a id="deleteIcon" href="../php/delete-notice.php?id='.$row['nid'].'"> <i class="fas fa-trash-alt trash__icon"></i></a>';
+            return '<button class="deleteIcon" onclick="handleNoticeDelete(event, '.$row['nid'].')" ><i class="fas fa-trash-alt trash__icon"></i></button>';
         }
     }
 ?>

@@ -32,6 +32,8 @@ const refreshPage = () => {
   xhr.send("page=" + page);
 };
 
+var interval = setInterval(refreshPage, 500);
+
 refreshPage();
 
 postButton.addEventListener("click", () => {
@@ -60,24 +62,6 @@ postButton.addEventListener("click", () => {
   xhr.send(formData);
 });
 
-setInterval(() => {
-  const xhr = new XMLHttpRequest();
-  let currentUrl = window.location.href;
-  let url = new URL(currentUrl);
-  let page = url.searchParams.get("page");
-  xhr.open("POST", "http://localhost/ptp/php/get-notices.php", true);
-  xhr.onload = () => {
-    if (xhr.readyState === XMLHttpRequest.DONE) {
-      if (xhr.status === 200) {
-        let data = xhr.response;
-        cardContainer.innerHTML = data;
-      }
-    }
-  };
-  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhr.send("page=" + page);
-}, 120000);
-
 // SEARCH BAR
 
 const searchBar = document.querySelector(".header__input");
@@ -98,4 +82,33 @@ searchBar.onkeyup = () => {
   };
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhr.send("search=" + searchValue + "&page=" + page);
+};
+
+const setPageRefreshInterval = () => {
+  interval = setInterval(refreshPage, 500);
+};
+
+const clearPageRefreshInterval = () => {
+  clearInterval(interval);
+};
+
+const setPageRefreshIntervalIfSearchBarIsEmpty = (e) => {
+  if (!e.target.value) setPageRefreshInterval();
+};
+
+const handleNoticeDelete = (event, id) => {
+  event.preventDefault();
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "http://localhost/ptp/php/delete-notice.php", true);
+  xhr.onload = () => {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        const data = xhr.response;
+        console.log(data);
+        refreshPage();
+      }
+    }
+  };
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.send("id=" + id);
 };

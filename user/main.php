@@ -29,7 +29,7 @@
             <?php include '../php/get-current-url.php'; echo removeSpecialCharacters(); ?> 
             Page</h3>
             <div class="header__search">
-                <input type="search" placeholder="Search" class="header__input">
+                <input type="search" onfocus="clearPageRefreshInterval()" onchange="setPageRefreshIntervalIfSearchBarIsEmpty(event)" placeholder="Search" class="header__input">
                 <i class="fas fa-search header__icon"></i>
             </div>
 

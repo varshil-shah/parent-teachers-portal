@@ -2,8 +2,8 @@
 <?php
     session_start();
     include_once './config.php';
-    if(isset($_GET['id'])) {
-        $id = mysqli_real_escape_string($con, $_GET['id']);
+    if(!empty($_POST['id'])) {
+        $id = mysqli_real_escape_string($con, $_POST['id']);
         $delete = "DELETE FROM notice WHERE nid = '$id'";
         $delete_query = mysqli_query($con, $delete);
         if($delete_query) {

@@ -361,6 +361,12 @@ img {
   letter-spacing: 0.5px;
 }
 
+.deleteIcon {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
 /* MODAL */
 
 .modal__form {
