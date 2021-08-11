@@ -66,7 +66,7 @@ postButton.addEventListener("click", () => {
 
 const searchBar = document.querySelector(".header__input");
 searchBar.onkeyup = () => {
-  let searchValue = searchBar.value;
+  let searchValue = searchBar.value.trim();
   let currentUrl = window.location.href;
   let url = new URL(currentUrl);
   let page = url.searchParams.get("page");
@@ -104,7 +104,11 @@ const handleNoticeDelete = (event, id) => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
         const data = xhr.response;
-        console.log(data);
+        swal({
+          title: "NOTICE MESSAGE",
+          text: data,
+          icon: data === "Notice has been deleted" ? "success" : "error",
+        });
         refreshPage();
       }
     }

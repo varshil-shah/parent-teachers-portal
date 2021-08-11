@@ -21,4 +21,8 @@ const dropDownIcon = () => {
   }
 };
 
-selectMenu.addEventListener("click", dropDownIcon);
+try {
+  selectMenu.addEventListener("click", dropDownIcon);
+} catch (error) {
+  console.log(error.message);
+}

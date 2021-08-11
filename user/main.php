@@ -3,7 +3,7 @@
     if(!isset($_SESSION['email'])) {
         ?>
             <script>
-                location.replace('../forms/sign-in.php');
+                location.replace('../sign-in.php');
             </script>
         <?php
     }

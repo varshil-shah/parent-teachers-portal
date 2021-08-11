@@ -16,7 +16,7 @@ signupButton.addEventListener("click", () => {
         let data = xhr.response;
         hideLoading();
         if (data === "success") {
-          location.href = "http://localhost/ptp/forms/otp.php";
+          location.href = "http://localhost/ptp/otp.php";
         } else {
           swal({
             title: "SIGNUP MESSAGE",

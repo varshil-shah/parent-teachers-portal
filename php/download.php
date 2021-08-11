@@ -11,11 +11,11 @@
             download($fileName);
         }else {
             session_destroy();
-            header('location: ../forms/sign-in.php');
+            header('location: ../sign-in.php');
         }
     }else {
         session_destroy();
-        header('location: ../forms/sign-in.php');
+        header('location: ../sign-in.php');
     }
 
     function download($name) {

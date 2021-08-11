@@ -8,7 +8,7 @@
     $otp = rand(111111,999999);
     $unique_id = rand(time(), 100000000);
     if(!empty($fullName) && !empty($email) && !empty($password)) {
-        if(filter_var($email, FILTER_VALIDATE_EMAIL) && filterEmail($email)) {
+        if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $email_search = mysqli_query($con, "SELECT email FROM signup WHERE email = '$email'");
             if(mysqli_num_rows($email_search) > 0) {
                 echo "Email already exists";
@@ -30,19 +30,9 @@
                 }
             }
         }else {
-            echo "Please enter somaiya email";
+            echo "Please enter a valid email";
         }
     }else {
         echo 'All fields must be filled';
     }
-
-    function filterEmail($email) {
-        if(strpos($email, '@somaiya.edu')) {
-            return true;
-        }
-        return false;
-    }
-    
-
-
 ?>

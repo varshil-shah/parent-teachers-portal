@@ -18,14 +18,14 @@
                     <img src="./images/signup.jpg" alt="">
                 </div>
                 <div class="formBx">
-                    <form action="#" method="POST" autocomplete="off">
+                    <form action="#" method="POST">
                         <div id="loading"></div>
                         <h3 class="logo">Somaiya Polytechnic</h3>
                         <h2>SIGN UP</h2>
-                        <input required autocomplete="off" type="text" placeholder="Enter your full name" name="fullName">
-                        <input required autocomplete="off" type="email" placeholder="Enter email address" name="email">
+                        <input required type="text" placeholder="Enter your full name" name="fullName">
+                        <input required type="email" placeholder="Enter email address" name="email">
                         <div class="wrap-icons">
-                            <input required autocomplete="off" type="password" placeholder="Enter password" name="password">
+                            <input required type="password" placeholder="Enter password" name="password">
                             <i class="fas fa-eye eye"></i>
                         </div>
                         <div class="wrap-icons">
@@ -36,13 +36,13 @@
                             <i class="fas fa-chevron-down drop-down"></i>
                         </div>
                         <input type="submit" value="Sign Up" name="login" class="signUpButton">
-                        <p class="signup">Don't have an account ? <a href="./forms/sign-in.php">SIGN IN</a></p>
+                        <p class="signup">Don't have an account ? <a href="./sign-in.php">SIGN IN</a></p>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-    <div class="bg-balls"></div>
+    <div class="bg-balls"></div>`
 
     <script src="./javascript/eye-dropdown.js"></script>
     <script src="./javascript/signup.js"></script>
