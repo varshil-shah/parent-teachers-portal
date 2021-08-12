@@ -32,7 +32,7 @@ const refreshPage = () => {
   xhr.send("page=" + page);
 };
 
-var interval = setInterval(refreshPage, 500);
+var interval = setInterval(refreshPage, 120000);
 
 refreshPage();
 
@@ -85,7 +85,7 @@ searchBar.onkeyup = () => {
 };
 
 const setPageRefreshInterval = () => {
-  interval = setInterval(refreshPage, 500);
+  interval = setInterval(refreshPage, 120000);
 };
 
 const clearPageRefreshInterval = () => {
@@ -93,7 +93,10 @@ const clearPageRefreshInterval = () => {
 };
 
 const setPageRefreshIntervalIfSearchBarIsEmpty = (e) => {
-  if (!e.target.value) setPageRefreshInterval();
+  console.log(e.target.value.toString());
+  if (!e.target.value) {
+    setPageRefreshInterval();
+  }
 };
 
 const handleNoticeDelete = (event, id) => {

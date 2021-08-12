@@ -70,7 +70,7 @@
                             <span class="nav__name">Test Marks</span>
                         </a>
 
-                        <a href="#" class="nav__link">
+                        <a class="nav__link">
                             <i class="far fa-comments nav__icon"></i>
                             <span class="nav__name">Message</span>
                         </a>
@@ -87,8 +87,7 @@
 
     <main class="main__body">
         <div class="card__container">
-
-        <!-- ADDING DYNAMIC NOTICES -->
+            <!-- ADDING DYNAMIC NOTICES -->
         </div>
     </main>
 
@@ -123,6 +122,82 @@
             </div>
             <button type="submit" class="post__button">POST</button>
         </form>
+    </div>
+    <div class="overlay hidden"></div>
+
+    <!-- Send Email Pop-Up -->
+    <div class="send__mail hidden">
+        <div class="close__heading">
+            <h3>Send email to recipient</h3>
+            <i class="fas fa-times" id="closeSendEmailButton"></i>
+        </div>
+        <div class="send__mail__container">
+            <div class="formBx">
+                <form action="#" method="POST">
+                    <div class="form__control">
+                        <label for="title">Title</label>
+                        <input required type="text" name="title" id="sendMailTitle" placeholder="Enter your title">
+                    </div>
+                    <div class="form__control">
+                        <label for="message">Message</label>
+                        <textarea required name="message" id="sendMailMessage" placeholder="Type your message..." name="message" id="" cols="10"
+                            rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="post__button">SEND</button>
+                </form>
+            </div>
+            <div class="parents__name">
+                <div class="parents__box">
+                    <div class="user__data">
+                        <h5>Varshil Shah</h4>
+                        <p>varshil.as@somaiya.edu</p>
+                    </div>
+                    <div class="user__data__check">
+                        <input type="checkbox" class="email__checkbox">
+                    </div>
+                </div>
+
+                <div class="parents__box">
+                    <div class="user__data">
+                        <h5>Varshil Shah</h4>
+                        <p>varshil.as@somaiya.edu</p>
+                    </div>
+                    <div class="user__data__check">
+                        <input type="checkbox" class="email__checkbox">
+                    </div>
+                </div>
+
+                <div class="parents__box">
+                    <div class="user__data">
+                        <h5>Varshil Shah</h4>
+                        <p>varshil.as@somaiya.edu</p>
+                    </div>
+                    <div class="user__data__check">
+                        <input type="checkbox" class="email__checkbox">
+                    </div>
+                </div>
+
+                <div class="parents__box">
+                    <div class="user__data">
+                        <h5>Varshil Shah</h4>
+                        <p>varshil.as@somaiya.edu</p>
+                    </div>
+                    <div class="user__data__check">
+                        <input type="checkbox" class="email__checkbox">
+                    </div>
+                </div>
+
+                <div class="parents__box">
+                    <div class="user__data">
+                        <h5>Varshil Shah</h4>
+                        <p>varshil.as@somaiya.edu</p>
+                    </div>
+                    <div class="user__data__check">
+                        <input type="checkbox" class="email__checkbox">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="overlay hidden"></div>
 

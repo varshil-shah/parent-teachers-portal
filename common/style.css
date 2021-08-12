@@ -326,16 +326,19 @@ img {
   color: #000;
 }
 
+.parents__name::-webkit-scrollbar,
 .card .card__msg::-webkit-scrollbar {
   width: 8px;
   margin: 0px 10px;
 }
 
+.parents__name::-webkit-scrollbar-track,
 .card .card__msg::-webkit-scrollbar-track {
   background: #fff;
   border-radius: 50px;
 }
 
+.parents__name::-webkit-scrollbar-thumb,
 .card .card__msg::-webkit-scrollbar-thumb {
   background: linear-gradient(to right, #ff4331, #d31a50);
   border-radius: 50px;
@@ -369,39 +372,43 @@ img {
 }
 
 /* MODAL */
-
 .modal__form {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   height: auto;
-  width: 40%;
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   padding: 20px 25px;
   z-index: 102;
+  width: 40%;
 }
 
+.send__mail h3,
 .modal__form h3 {
   font-size: 23px;
   font-weight: 500;
   color: #d31a50;
 }
 
+.send__mail .send__mail__container .form__control,
 .modal__form .form__control {
   display: flex;
   margin-bottom: 12px;
   flex-direction: column;
 }
 
+.send__mail .send__mail__container form label,
 .modal__form form label {
   font-size: 18px;
   color: #000;
   font-weight: 500;
 }
 
+.send__mail .send__mail__container form input,
+.send__mail .send__mail__container form textarea,
 .modal__form form select,
 .modal__form form input,
 .modal__form form textarea {
@@ -413,12 +420,14 @@ img {
   resize: none;
 }
 
+.send__mail .close__heading,
 .modal__form .close__heading {
   display: flex;
   justify-content: space-between;
   margin: 10px 0;
 }
 
+.send__mail .send__mail__container form .post__button,
 .modal__form form .post__button {
   outline: none;
   border: none;
@@ -431,6 +440,7 @@ img {
   cursor: pointer;
 }
 
+#closeSendEmailButton,
 #closeButton {
   font-size: 22px;
   color: red;
@@ -462,7 +472,76 @@ img {
   pointer-events: none;
 }
 
-/* SEARCH CONTENT */
+/* SEND EMAIL POP-UP */
+.send__mail {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: auto;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  padding: 20px 25px;
+  z-index: 102;
+  width: 50%;
+}
+
+.send__mail__container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.parents__name,
+.formBx {
+  width: 100% !important;
+  margin: 10px;
+}
+
+.parents__name {
+  max-height: 290px;
+  overflow-y: auto;
+}
+
+.parents__box {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e9e2e2;
+  margin: 8px;
+  border-radius: 5px;
+}
+
+.parents__name .user__data > p,
+.parents__name .user__data > h5 {
+  margin: 0 !important;
+}
+
+.user__data {
+  padding: 5px 8px;
+}
+
+.user__data h5 {
+  color: crimson;
+  font-size: 16px;
+  padding-top: 5px;
+}
+
+.user__data p {
+  color: #000;
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+
+.email__checkbox {
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  margin-right: 10px;
+  cursor: pointer;
+  border: none;
+}
 
 @media screen and (min-width: 320px) {
   .header__search {
@@ -549,6 +628,7 @@ img {
     grid-template-columns: repeat(1, 1fr) !important;
   }
 
+  .send__mail,
   .modal__form {
     height: auto;
     width: 90% !important;
@@ -560,9 +640,38 @@ img {
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .send__mail,
   .modal__form {
     height: auto;
     width: 50%;
+    margin: 0;
+  }
+
+  .send__mail::-webkit-scrollbar {
+    width: 8px;
+    margin: 0px 10px;
+  }
+
+  .send__mail::-webkit-scrollbar-track {
+    background: #fff;
+    border-radius: 50px;
+  }
+
+  .send__mail::-webkit-scrollbar-thumb {
+    background: linear-gradient(to right, #ff4331, #d31a50);
+    border-radius: 50px;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 1130px) {
+  .send__mail {
+    max-height: 500px;
+    overflow-y: auto;
+  }
+
+  .send__mail__container {
+    display: block;
   }
 }
 
@@ -571,6 +680,7 @@ img {
     display: none;
   }
 
+  .send__mail,
   .modal__form {
     height: auto;
     width: 60%;
