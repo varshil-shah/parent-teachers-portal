@@ -8,6 +8,27 @@ const closeModalIcon = document.querySelector("#closeButton");
 const overlay = document.querySelector(".overlay");
 const modal = document.querySelector(".modal__form");
 
+// Send Mail
+const sendMail = document.querySelector(".send__mail");
+const overlay2 = document.querySelector(".overlay2");
+const messageLink = document.querySelector("#messageLink");
+const closeSendEmailButton = document.querySelector("#closeSendEmailButton");
+const displayUser = document.querySelector(".parents__name");
+
+const refreshUsers = () => {
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "http://localhost/ptp/php/find-users.php", true);
+  xhr.onload = () => {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        let data = xhr.response;
+        displayUser.innerHTML = data;
+      }
+    }
+  };
+  xhr.send();
+};
+
 toggleButton.addEventListener("click", () => {
   navbar.classList.toggle("show-menu");
 });
@@ -21,19 +42,26 @@ linkColor.forEach((l) => l.addEventListener("click", colorLink));
 
 // Modal
 
-const showModal = () => {
-  modal.classList.remove("hidden");
-  overlay.classList.remove("hidden");
+const showModal = (modalVariable, overlayVariable) => {
+  modalVariable.classList.remove("hidden");
+  overlayVariable.classList.remove("hidden");
 };
 
-const closeModal = () => {
-  modal.classList.add("hidden");
-  overlay.classList.add("hidden");
+const closeModal = (modalVariable, overlayVariable) => {
+  modalVariable.classList.add("hidden");
+  overlayVariable.classList.add("hidden");
 };
 
 try {
-  openModalIcon.addEventListener("click", showModal);
-  closeModalIcon.addEventListener("click", closeModal);
+  openModalIcon.addEventListener("click", () => showModal(modal, overlay));
+  messageLink.addEventListener("click", () => {
+    refreshUsers();
+    showModal(sendMail, overlay2);
+  });
+  closeSendEmailButton.addEventListener("click", () => {
+    closeModal(sendMail, overlay2);
+  });
+  closeModalIcon.addEventListener("click", () => closeModal(modal, overlay));
 } catch (error) {
   console.log(error.message);
 }

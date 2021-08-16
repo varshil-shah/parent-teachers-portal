@@ -23,7 +23,7 @@
                 echo 'Email not found in database';
             }
         }else {
-            echo "Please enter somaiya's email address";
+            echo "Email not found !!";
         }
     }else {
         echo "No field should be empty";

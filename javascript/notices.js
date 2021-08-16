@@ -32,7 +32,7 @@ const refreshPage = () => {
   xhr.send("page=" + page);
 };
 
-var interval = setInterval(refreshPage, 120000);
+var interval = setInterval(refreshPage, 12000);
 
 refreshPage();
 
@@ -85,7 +85,7 @@ searchBar.onkeyup = () => {
 };
 
 const setPageRefreshInterval = () => {
-  interval = setInterval(refreshPage, 120000);
+  interval = setInterval(refreshPage, 12000);
 };
 
 const clearPageRefreshInterval = () => {

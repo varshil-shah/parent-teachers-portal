@@ -69,11 +69,17 @@
                             <i class="fas fa-book nav__icon"></i>
                             <span class="nav__name">Test Marks</span>
                         </a>
-
-                        <a class="nav__link">
-                            <i class="far fa-comments nav__icon"></i>
-                            <span class="nav__name">Message</span>
-                        </a>
+                        
+                        <?php
+                            if(isset($_SESSION['role']) && $_SESSION['role'] == 'teacher') {
+                            ?>
+                                <a class="nav__link" id="messageLink">
+                                    <i class="far fa-comments nav__icon"></i>
+                                    <span class="nav__name">Message</span>
+                                </a>
+                            <?php 
+                        }
+                        ?>
 
                         <a href="../php/logout.php" class="nav__link">
                             <i class="fas fa-sign-out-alt nav__icon"></i>
@@ -133,7 +139,7 @@
         </div>
         <div class="send__mail__container">
             <div class="formBx">
-                <form action="#" method="POST">
+                <form action="#" method="POST" id="sendEmailForm">
                     <div class="form__control">
                         <label for="title">Title</label>
                         <input required type="text" name="title" id="sendMailTitle" placeholder="Enter your title">
@@ -143,63 +149,15 @@
                         <textarea required name="message" id="sendMailMessage" placeholder="Type your message..." name="message" id="" cols="10"
                             rows="5"></textarea>
                     </div>
-                    <button type="submit" class="post__button">SEND</button>
+                    <button type="submit" class="post__button" id="sendEmailButton">SEND</button>
                 </form>
             </div>
             <div class="parents__name">
-                <div class="parents__box">
-                    <div class="user__data">
-                        <h5>Varshil Shah</h4>
-                        <p>varshil.as@somaiya.edu</p>
-                    </div>
-                    <div class="user__data__check">
-                        <input type="checkbox" class="email__checkbox">
-                    </div>
-                </div>
-
-                <div class="parents__box">
-                    <div class="user__data">
-                        <h5>Varshil Shah</h4>
-                        <p>varshil.as@somaiya.edu</p>
-                    </div>
-                    <div class="user__data__check">
-                        <input type="checkbox" class="email__checkbox">
-                    </div>
-                </div>
-
-                <div class="parents__box">
-                    <div class="user__data">
-                        <h5>Varshil Shah</h4>
-                        <p>varshil.as@somaiya.edu</p>
-                    </div>
-                    <div class="user__data__check">
-                        <input type="checkbox" class="email__checkbox">
-                    </div>
-                </div>
-
-                <div class="parents__box">
-                    <div class="user__data">
-                        <h5>Varshil Shah</h4>
-                        <p>varshil.as@somaiya.edu</p>
-                    </div>
-                    <div class="user__data__check">
-                        <input type="checkbox" class="email__checkbox">
-                    </div>
-                </div>
-
-                <div class="parents__box">
-                    <div class="user__data">
-                        <h5>Varshil Shah</h4>
-                        <p>varshil.as@somaiya.edu</p>
-                    </div>
-                    <div class="user__data__check">
-                        <input type="checkbox" class="email__checkbox">
-                    </div>
-                </div>
+                <!-- Adding dynamic users -->
             </div>
         </div>
     </div>
-    <div class="overlay hidden"></div>
+    <div class="overlay2 hidden"></div>
 
     <?php
         if(isset($_SESSION['role']) && $_SESSION['role'] == 'teacher') {
@@ -213,6 +171,7 @@
 
     <script src="../javascript/main.js"></script>
     <script src="../javascript/notices.js"></script>
+    <script src="../javascript/send-mail.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
