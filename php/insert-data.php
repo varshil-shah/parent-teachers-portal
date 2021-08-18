@@ -17,10 +17,8 @@
                 $insert = "INSERT INTO signup(fullName, email, password, role, otp, uniqueId,status)
                 VALUES('$fullName','$email','$encrypt_password','$role','$otp','$unique_id','inactive')";
                 $insert_query = mysqli_query($con, $insert);
-                $subject = "One Time Password";
-                $msg = "Hello Mr/Mrs. " . $fullName ."\nYour one time password for sign-up is " .$otp;
-                $from = "From: K.J Somaiya Polytechnic<jerryshah1004@gmail.com>";
-                if($insert_query && mail($email, $subject, $msg, $from)) {
+                
+                if($insert_query && sendMail($email, $fullName, $otp)) {
                     $_SESSION['email'] = $email;
                     $_SESSION['role'] = $role;
                     $_SESSION['uniqueId'] = $unique_id;
@@ -34,5 +32,45 @@
         }
     }else {
         echo 'All fields must be filled';
+    }
+
+    function sendMail($to, $fullName, $otp) {
+        $headers = "From: " . strip_tags("K.J Somaiya Polytechnic <jerryshah1004@gmail.com>") . "\r\n";
+        $headers .= "Reply-To: ". strip_tags("K.J Somaiya Polytechnic <jerryshah1004@gmail.com>") . "\r\n";
+        $headers .= "MIME-Version: 1.0\r\n";
+        $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+        $subject = "Your OTP for creating account";
+        $message = '
+            <!DOCTYPE html>
+            <html lang="en">
+
+            <head>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>One Time Password</title>
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap" rel="stylesheet">
+            </head>
+
+            <body>
+                <div class="container"
+                    style="background: #f2f2f2;border-radius: 10px; padding: 30px;font-family: \'Ubuntu Condensed\', sans-serif;">
+                    <h2 style="font-size: 26px;">Hello Mr/Mrs '.$fullName.'</h2>
+                    <h4 style="font-size: 20px;">Your account has been almost create!!</h4>
+                    <p style="font-size: 18px;">You One time password (OTP) to create your account</p>
+                    <h3
+                        style="font-size: 26px; background-color: crimson; text-align: center; color: #fff; padding: 10px 12px; border-radius: 5px; letter-spacing: 2px;">
+                        '.$otp.'</h3>
+                </div>
+            </body>
+            </html>
+        ';
+        if(mail($to, $subject, $message, $headers)) {
+            return true;
+        }else{
+            return false;
+        }
     }
 ?>

@@ -1,6 +1,8 @@
 const sendEmailButton = document.querySelector("#sendEmailButton");
 const checkBoxes = document.getElementsByName("users[]");
-const emailFromData = document.querySelector("#sendEmailForm");
+const emailFormData = document.querySelector("#sendEmailForm");
+const sendMailTitle = document.querySelector("#sendMailsendMailTitle");
+const message = document.querySelector("#sendMailMessage");
 
 sendEmailButton.addEventListener("click", (e) => {
   e.preventDefault();
@@ -14,6 +16,8 @@ sendEmailButton.addEventListener("click", (e) => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
         const data = xhr.response;
+        sendMailTitle.value = "";
+        message.value = "";
         swal({
           title: "SEND MAIL",
           text: data,
@@ -22,7 +26,7 @@ sendEmailButton.addEventListener("click", (e) => {
       }
     }
   };
-  let formData = new FormData(emailFromData);
+  let formData = new FormData(emailFormData);
   formData.append("emailList", emailList);
   xhr.send(formData);
 });

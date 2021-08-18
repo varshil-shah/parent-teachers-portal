@@ -21,7 +21,7 @@ signupButton.addEventListener("click", () => {
           swal({
             title: "SIGNUP MESSAGE",
             text: data,
-            icon: data === "success" ? "success" : "error",
+            icon: "error",
           });
         }
       }

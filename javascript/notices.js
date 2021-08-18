@@ -19,7 +19,11 @@ const refreshPage = () => {
   let currentUrl = window.location.href;
   let url = new URL(currentUrl);
   let page = url.searchParams.get("page");
-  xhr.open("POST", "http://localhost/ptp/php/get-notices.php", true);
+  if (page === "mails") {
+    xhr.open("POST", "http://localhost/ptp/php/get-mail-notice.php", true);
+  } else {
+    xhr.open("POST", "http://localhost/ptp/php/get-notices.php", true);
+  }
   xhr.onload = () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
@@ -71,7 +75,11 @@ searchBar.onkeyup = () => {
   let url = new URL(currentUrl);
   let page = url.searchParams.get("page");
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost/ptp/php/search.php", true);
+  if (page === "mails") {
+    xhr.open("POST", "http://localhost/ptp/php/search-mails.php", true);
+  } else {
+    xhr.open("POST", "http://localhost/ptp/php/search.php", true);
+  }
   xhr.onload = () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
@@ -81,7 +89,11 @@ searchBar.onkeyup = () => {
     }
   };
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhr.send("search=" + searchValue + "&page=" + page);
+  if (page === "mails") {
+    xhr.send("search=" + searchValue);
+  } else {
+    xhr.send("search=" + searchValue + "&page=" + page);
+  }
 };
 
 const setPageRefreshInterval = () => {

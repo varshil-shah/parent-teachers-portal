@@ -74,8 +74,19 @@
                             if(isset($_SESSION['role']) && $_SESSION['role'] == 'teacher') {
                             ?>
                                 <a class="nav__link" id="messageLink">
-                                    <i class="far fa-comments nav__icon"></i>
+                                    <i class="fas fa-comments nav__icon"></i>
                                     <span class="nav__name">Message</span>
+                                </a>
+                            <?php
+                        }
+                        ?>
+
+                        <?php
+                            if(isset($_SESSION['role']) && $_SESSION['role'] == 'parent') {
+                            ?>
+                                <a href="./main.php?page=mails" class="nav__link">
+                                    <i class="fas fa-envelope-open-text nav__icon"></i>
+                                    <span class="nav__name">Mails</span>
                                 </a>
                             <?php 
                         }

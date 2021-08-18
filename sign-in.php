@@ -36,7 +36,7 @@
         <div class="bg-balls"></div>
     </section>
     <script src="./javascript/eye-dropdown.js"></script>
-    <script src="./javascript/signin.js"></script>
+    <script type="module" src="./javascript/signin.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>;
 </body>
 
