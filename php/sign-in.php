@@ -5,7 +5,7 @@
     $password = mysqli_real_escape_string($con, $_POST['password']);
 
     if(!empty($email) && !empty($password)) {
-        if(filter_var($email, FILTER_VALIDATE_EMAIL) && filterEmail($email)) {
+        if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $search_email = "SELECT * FROM signup WHERE email = '$email'";
             $search_email_query = mysqli_query($con, $search_email);
             if(mysqli_num_rows($search_email_query) > 0) {
@@ -27,12 +27,5 @@
         }
     }else {
         echo "No field should be empty";
-    }
-
-    function filterEmail($email) {
-        if(strpos($email, '@somaiya.edu')) {
-            return true;
-        }
-        return false;
     }
 ?>

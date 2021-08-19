@@ -29,6 +29,7 @@
                         </div>
                         <input type="submit" value="Login" class="login">
                         <p class="signup">Already have an account ? <a href="./index.php">SIGN UP</a></p>
+                        <p class="signup">Forgot password ? <a href="./forgot-password.php">CLICK</a></p>
                     </form>
                 </div>
             </div>

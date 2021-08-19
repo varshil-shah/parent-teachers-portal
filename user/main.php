@@ -151,6 +151,7 @@
         <div class="send__mail__container">
             <div class="formBx">
                 <form action="#" method="POST" id="sendEmailForm">
+                    <div id="loading"></div>
                     <div class="form__control">
                         <label for="title">Title</label>
                         <input required type="text" name="title" id="sendMailTitle" placeholder="Enter your title">

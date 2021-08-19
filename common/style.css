@@ -545,6 +545,33 @@ img {
   border: none;
 }
 
+/* LOADING */
+
+#loading {
+  width: 2rem;
+  height: 2rem;
+  border: 5px solid #f3f3f3;
+  border-top: 6px solid crimson;
+  border-radius: 50%;
+  margin: auto;
+  visibility: hidden;
+  animation: spin 1s linear infinite;
+  z-index: 103;
+}
+
+#loading.display {
+  visibility: visible;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media screen and (min-width: 320px) {
   .header__search {
     width: 70%;

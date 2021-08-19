@@ -37,6 +37,7 @@
                         </div>
                         <input type="submit" value="Sign Up" name="login" class="signUpButton">
                         <p class="signup">Don't have an account ? <a href="./sign-in.php">SIGN IN</a></p>
+                        <p class="signup">Forgot password ? <a href="./forgot-password.php">CLICK</a></p>
                     </form>
                 </div>
             </div>
@@ -46,7 +47,7 @@
 
     <script src="./javascript/eye-dropdown.js"></script>
     <script src="./javascript/signup.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>;
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>

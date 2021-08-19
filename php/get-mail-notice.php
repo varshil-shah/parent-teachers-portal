@@ -25,7 +25,7 @@
             }
         }
     }else {
-        $result .= "No data found !!";
+        $result .= '<h3 class="center">No Notice found !!</h3>';
     }
     echo $result;
 ?>

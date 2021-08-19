@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include_once './encode-decode.php';
     include_once './config.php';
     $fullName = mysqli_real_escape_string($con, $_POST['fullName']);
     $email = mysqli_real_escape_string($con, $_POST['email']);
@@ -56,9 +57,9 @@
 
             <body>
                 <div class="container"
-                    style="background: #f2f2f2;border-radius: 10px; padding: 30px;font-family: \'Ubuntu Condensed\', sans-serif;">
-                    <h2 style="font-size: 26px;">Hello Mr/Mrs '.$fullName.'</h2>
-                    <h4 style="font-size: 20px;">Your account has been almost create!!</h4>
+                    style="background: #f2f2f2;border-radius: 10px; padding: 30px;font-family: \'Ubuntu Condensed\', sans-serif; width: 500px;">
+                    <h2 style="font-size: 20px;">Hello Mr/Mrs '.$fullName.'</h2>
+                    <h4 style="font-size: 16px;">Your account has been almost create!!</h4>
                     <p style="font-size: 18px;">You One time password (OTP) to create your account</p>
                     <h3
                         style="font-size: 26px; background-color: crimson; text-align: center; color: #fff; padding: 10px 12px; border-radius: 5px; letter-spacing: 2px;">
