@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2021 at 02:11 PM
+-- Generation Time: Aug 20, 2021 at 08:44 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.3.23
 
@@ -24,6 +24,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `email_send`
+--
+
+CREATE TABLE `email_send` (
+  `id` int(255) NOT NULL,
+  `uniqueId` int(255) NOT NULL,
+  `title` varchar(500) NOT NULL,
+  `message` varchar(2000) NOT NULL,
+  `users` varchar(1500) NOT NULL,
+  `date` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `email_send`
+--
+
+INSERT INTO `email_send` (`id`, `uniqueId`, `title`, `message`, `users`, `date`) VALUES
+(1, 1147335206, 'Summer Vacation for 40 days ', 'Nibh venenatis cras sed felis eget. Ullamcorper dignissim cras tincidunt lobortis. Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec. Mi quis hendrerit dolor magna eget est lorem ipsum dolor. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula. Justo donec enim diam vulputate ut pharetra sit. Suspendisse potenti nullam ac tortor vitae purus faucibus. Elementum nibh tellus molestie nunc', 'fifovah896@5sword.com', '20 Aug, 2021'),
+(18, 1147335206, 'College ends from 1st of november', 'Tincidunt augue interdum velit euismod. Amet nisl suscipit adipiscing bibendum. Sed lectus vestibulum mattis ullamcorper velit sed. Fames ac turpis egestas integer eget aliquet nibh praesent tristique.', 'fifovah896@5sword.com,daxilom157@bushdown.com', '21 Aug, 2021');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `notice`
 --
 
@@ -32,7 +55,6 @@ CREATE TABLE `notice` (
   `uniqueId` int(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `message` varchar(2000) NOT NULL,
-  `teacher` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
   `pdfFile` varchar(255) NOT NULL,
   `pageName` varchar(255) NOT NULL
@@ -42,12 +64,8 @@ CREATE TABLE `notice` (
 -- Dumping data for table `notice`
 --
 
-INSERT INTO `notice` (`nid`, `uniqueId`, `title`, `message`, `teacher`, `date`, `pdfFile`, `pageName`) VALUES
-(5, 771614373, 'College starts from 1st of september', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).', 'Varun Shah', '5 Aug, 2021', '1628161209Chatapp Database.pdf', 'announcements'),
-(7, 771614373, 'Sports starts from 10th October', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.', 'Varun Shah', '7 Aug, 2021', '1628334399otp-verification.pdf', 'notices'),
-(9, 771614373, 'Summer Vacation for 20 days ', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.', 'Varun Shah', '7 Aug, 2021', '1628346222Chatapp Database.pdf', 'announcements'),
-(13, 737538041, 'Summer Vacation for 40 days ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Surya Sharma', '11 Aug, 2021', '1628673101daily-report-02-08-2021.pdf', 'announcements'),
-(14, 673683744, 'Summer Vacation for 30 days ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Varshil Shah', '11 Aug, 2021', '1628680326daily-report-04-08-2021.pdf', 'announcements');
+INSERT INTO `notice` (`nid`, `uniqueId`, `title`, `message`, `date`, `pdfFile`, `pageName`) VALUES
+(1, 1147335206, 'College starts from 1st of september', 'Leo duis ut diam quam nulla porttitor massa id neque. At consectetur lorem donec massa sapien. Pellentesque sit amet porttitor eget dolor morbi non arcu risus. Nisl pretium fusce id velit ut. At in tellus integer feugiat. Ac tortor vitae purus faucibus ornare suspendisse sed nisi. Mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Vivamus at augue eget arcu dictum varius duis at consectetur.', '20 Aug, 2021', '1629481958daily-report-01-08-2021.pdf', 'announcements');
 
 -- --------------------------------------------------------
 
@@ -71,16 +89,19 @@ CREATE TABLE `signup` (
 --
 
 INSERT INTO `signup` (`id`, `uniqueId`, `fullName`, `email`, `password`, `role`, `otp`, `status`) VALUES
-(1, 771614373, 'Varun Shah', 'varun.shah@somaiya.edu', '$2y$10$ovfQDz5EjjfFcotn9u0geu5P6mOd55kgf.6TViA/5rRk77JRRQee6', 'teacher', 656389, 'active'),
-(2, 1625344615, 'Rohan Shah', 'rohan.as@somaiya.edu', '$2y$10$gLMTOMxPjXsAJRtsMduU.e9sPhN.zol.DViI6l0DIGXPBMV5q8s6S', 'parent', 857664, 'active'),
-(3, 912841954, 'Karan Varma', 'karan.varma@somaiya.edu', '$2y$10$Q.KOX.UT2B2kamQNvTGL8.4Ej.TURfyILCGAXI5Kq.TZqhw/IVW6u', 'parent', 268442, 'active'),
-(4, 737538041, 'Surya Sharma', 'surya.as@somaiya.edu', '$2y$10$bYI/elI1Qm6QzCpXVYBik.1tocKNbw80uASE52MHxuVDt.hD.uJL.', 'teacher', 993573, 'active'),
-(7, 673683744, 'Varshil Shah', 'varshil.as@somaiya.edu', '$2y$10$C6FLJA3GPtvR.hRNHHNPr./38pVho.ZZn6UeQE1kZOHjz/0vK9lK.', 'teacher', 238655, 'active'),
-(8, 897067994, 'Nishith Savla', 'nishith.savla@somaiya.edu', '$2y$10$pQ.QN4tz.X0zZcOvCZ63hupIHhKAcpvWKZ3k7AXH2ih8q6zwhm0Dq', 'parent', 270015, 'active');
+(1, 1147335206, 'Varshil Shah', 'varshil.as@somaiya.edu', '$2y$10$.9rvF5k6GSfN3a3PXQ6QS.BynmGJh9ZnY..c1LT8KYXPja1.QZVVe', 'teacher', 361984, 'active'),
+(2, 294310025, 'Random Person', 'fifovah896@5sword.com', '$2y$10$4tfL3puljOF.nr7OShI2tO2t3EyocUDQqXYRGsMXxnzbkWNvn6Eom', 'parent', 842659, 'active'),
+(3, 1055968346, 'Someone Else', 'daxilom157@bushdown.com', '$2y$10$TyMGieskT27tgv.JRN3gG.tN0fc3IoZsfvak4ZrFeNeC9.b4oHJSu', 'parent', 951830, 'active');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `email_send`
+--
+ALTER TABLE `email_send`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `notice`
@@ -99,16 +120,22 @@ ALTER TABLE `signup`
 --
 
 --
+-- AUTO_INCREMENT for table `email_send`
+--
+ALTER TABLE `email_send`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
 -- AUTO_INCREMENT for table `notice`
 --
 ALTER TABLE `notice`
-  MODIFY `nid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `nid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `signup`
 --
 ALTER TABLE `signup`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
