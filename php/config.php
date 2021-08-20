@@ -10,7 +10,7 @@
         ?>
             <script>
                 alert('Database connection failed');
-                location.replace('../index.html');
+                location.replace('../index.php');
             </script>
         <?php
     }

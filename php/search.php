@@ -1,6 +1,7 @@
 <?php
     session_start();
     include_once './config.php';
+    include_once './common.php';
     $searchValue = mysqli_real_escape_string($con, $_POST['search']);
     $page = mysqli_real_escape_string($con, $_POST['page']);
     $search = "SELECT * FROM notice WHERE title LIKE '%$searchValue%' AND pageName = '$page' ORDER BY notice.nid DESC";
@@ -14,7 +15,7 @@
                 <p class="card__msg">'.$row["message"].'</p>
                 <div class="card__details">
                     <p class="date">'.$row["date"].'</p>
-                    <p class="teacher">'.$row['teacher'].'</p>
+                    <p class="teacher">'.getTeacherName($con, $row['uniqueId']).'</p>
                 </div>
                 <div class="card__details">
                     <button class="download__pdf">Attachments</button>

@@ -12,6 +12,7 @@ sendEmailButton.addEventListener("click", (e) => {
     .map((checkBox) => checkBox.value)
     .join(",");
   displayLoading();
+  console.log(emailList);
   const xhr = new XMLHttpRequest();
   xhr.open("POST", "http://localhost/ptp/php/send-mail.php", true);
   xhr.onload = () => {

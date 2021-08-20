@@ -1,6 +1,5 @@
 <?php
     session_start();
-    include_once './encode-decode.php';
     include_once './config.php';
     $fullName = mysqli_real_escape_string($con, $_POST['fullName']);
     $email = mysqli_real_escape_string($con, $_POST['email']);

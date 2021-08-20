@@ -1,6 +1,7 @@
 <?php
     session_start();
     include_once './config.php';
+    include_once './common.php';
     $searchValue = mysqli_real_escape_string($con, $_POST['search']);
     $currentEmail = $_SESSION['email'];
     $search = "SELECT * FROM email_send WHERE title LIKE '%$searchValue%' AND users LIKE '%$currentEmail%' ORDER BY id DESC";
@@ -14,7 +15,7 @@
                 <p class="card__msg">'.$row["message"].'</p>
                 <div class="card__details">
                     <p class="date">'.$row["date"].'</p>
-                    <p class="teacher">'.$row['teacher'].'</p>
+                    <p class="teacher">'.getTeacherName($con, $row['uniqueId']).'</p>
                 </div>
             </div>';
         }

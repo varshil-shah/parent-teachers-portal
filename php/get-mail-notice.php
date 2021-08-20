@@ -1,6 +1,7 @@
 <?php
     session_start();
     include_once './config.php';
+    include_once './common.php';
     $currentUserEmail = $_SESSION['email'];
     $sql = "SELECT * FROM email_send WHERE users LIKE '%$currentUserEmail%'";
     $sql_query = mysqli_query($con, $sql);
@@ -10,17 +11,17 @@
             $array_of_email = explode(',',$row['users']);
             for($i = 0; $i < count($array_of_email); $i++) {
                 if($currentUserEmail == $array_of_email[$i]) {
-                    // echo $i." ".$array_of_email[$i]."<br>";
                     $result .= '
                         <div class="card" onmouseover="clearPageRefreshInterval(this)" onmouseout="setPageRefreshInterval(this)">
                             <h4 class="card__header">'.$row["title"].'</h4>
                             <p class="card__msg">'.$row["message"].'</p>
                             <div class="card__details">
                                 <p class="date">'.$row["date"].'</p>
-                                <p class="teacher">'.$row['teacher'].'</p>
+                                <p class="teacher">'.getTeacherName($con, $row['uniqueId']).'</p>
                             </div>
                         </div>
-                        ';
+                        '
+                    ;
                 }
             }
         }

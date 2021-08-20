@@ -2,21 +2,21 @@
     session_start();
     date_default_timezone_set('Asia/Kolkata');
     include_once './config.php';
-    $teacherName = getTeacherName($_SESSION['email'], $con);
+    include_once './common.php';
+    $uniqueId = $_SESSION['uniqueId'];
     $title = mysqli_real_escape_string($con, $_POST['title']);
     $message = mysqli_real_escape_string($con, $_POST['message']);
     $emailList = mysqli_real_escape_string($con, $_POST['emailList']);
     $date = date("j M, Y");
+    $teacherName = getTeacherName($con, $uniqueId);
     if(!empty($title) && !empty($message)) {
         if(!empty($emailList)) {
-            $sql = "INSERT INTO email_send(title, message, users, teacher, date) 
-                    VALUES('$title','$message','$emailList','$teacherName','$date')";
+            $sql = "INSERT INTO email_send(uniqueId, title, message, users, date) 
+                    VALUES('$uniqueId','$title','$message','$emailList','$date')";
             $sql_query = mysqli_query($con, $sql);
-            $from = "From: K.J Somaiya Polytechnic<jerryshah1004@gmail.com>\nBcc: $emailList";
             if($sql_query && sendMail($emailList, $title, $message, $teacherName, $date)) {
                 echo "Mail send successfully";
             }else {
-                echo $from.'\n';
                 echo 'Failed to send email';
             }
         }else {
@@ -24,16 +24,6 @@
         }
     }else {
         echo "All input fields must be filled";
-    }
-
-    function getTeacherName($teacherEmail, $con) {
-        $sql = "SELECT fullName FROM signup WHERE email = '$teacherEmail'";
-        $sql_query = mysqli_query($con, $sql);
-        if(mysqli_num_rows($sql_query) > 0) {
-            $row = mysqli_fetch_assoc($sql_query);
-            return $row['fullName'];
-        }
-        return null;
     }
 
     function sendMail($to, $title, $message, $teacherName, $date) {
