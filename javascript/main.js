@@ -17,7 +17,7 @@ const displayUser = document.querySelector(".parents__name");
 
 const refreshUsers = () => {
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost/ptp/php/find-users.php", true);
+  xhr.open("POST", "php/find-users.php", true);
   xhr.onload = () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {

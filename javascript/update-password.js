@@ -7,19 +7,27 @@ forgotPasswordForm.onsubmit = (e) => {
 
 updatePassword.addEventListener("click", () => {
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost/ptp/php/update-new-password.php", true);
+  xhr.open("POST", "php/update-new-password.php", true);
   xhr.onload = () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
         const data = xhr.response;
-        swal({
-          title: "UPDATE PASSWORD",
-          text: data,
-          icon:
-            data === "Password has been updated successfully"
-              ? "success"
-              : "error",
-        });
+        if (data === "Password has been updated successfully") {
+          setTimeout(() => {
+            swal({
+              title: "UPDATE PASSWORD",
+              text: data,
+              icon: "success",
+            });
+          }, 3000);
+          location.href = "sign-in.php";
+        } else {
+          swal({
+            title: "UPDATE PASSWORD",
+            text: data,
+            icon: "success",
+          });
+        }
       }
     }
   };

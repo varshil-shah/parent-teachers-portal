@@ -20,9 +20,9 @@ const refreshPage = () => {
   let url = new URL(currentUrl);
   let page = url.searchParams.get("page");
   if (page === "mails") {
-    xhr.open("POST", "http://localhost/ptp/php/get-mail-notice.php", true);
+    xhr.open("POST", "php/get-mail-notice.php", true);
   } else {
-    xhr.open("POST", "http://localhost/ptp/php/get-notices.php", true);
+    xhr.open("POST", "php/get-notices.php", true);
   }
   xhr.onload = () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -42,7 +42,7 @@ refreshPage();
 
 postButton.addEventListener("click", () => {
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost/ptp/php/pop-up-insert.php", true);
+  xhr.open("POST", "php/pop-up-insert.php", true);
   xhr.onload = () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
@@ -61,7 +61,6 @@ postButton.addEventListener("click", () => {
       }
     }
   };
-
   let formData = new FormData(form);
   xhr.send(formData);
 });
@@ -76,9 +75,9 @@ searchBar.onkeyup = () => {
   let page = url.searchParams.get("page");
   const xhr = new XMLHttpRequest();
   if (page === "mails") {
-    xhr.open("POST", "http://localhost/ptp/php/search-mails.php", true);
+    xhr.open("POST", "php/search-mails.php", true);
   } else {
-    xhr.open("POST", "http://localhost/ptp/php/search.php", true);
+    xhr.open("POST", "php/search.php", true);
   }
   xhr.onload = () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -114,7 +113,7 @@ const setPageRefreshIntervalIfSearchBarIsEmpty = (e) => {
 const handleNoticeDelete = (event, id) => {
   event.preventDefault();
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost/ptp/php/delete-notice.php", true);
+  xhr.open("POST", "php/delete-notice.php", true);
   xhr.onload = () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {

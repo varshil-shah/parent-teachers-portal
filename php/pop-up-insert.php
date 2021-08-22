@@ -19,7 +19,7 @@
             if(in_array($file_ext, $extensions)) {
                 $new_file_name = time().$file_name;
                 $date = date("j M, Y");
-                if(move_uploaded_file($tmp_name,"../uploads/".$new_file_name)) {
+                if(move_uploaded_file($tmp_name,"uploads/".$new_file_name)) {
                     $insert = "INSERT INTO notice(uniqueId,title,message,date, pdfFile, pageName)
                     VALUES('$uniqueId','$title','$message','$date','$new_file_name','$noticeType')";
                     $insert_query = mysqli_query($con, $insert);

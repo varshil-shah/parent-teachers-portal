@@ -7,14 +7,14 @@ forgotEmailForm.onsubmit = (e) => {
 
 sendForgotOtp.addEventListener("click", () => {
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost/ptp/php/find-email.php", true);
+  xhr.open("POST", "php/find-email.php", true);
   xhr.onload = () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
         const data = xhr.response;
         console.log(data);
         if (data === "success") {
-          location.href = "http://localhost/ptp/new-password.php";
+          location.href = "new-password.php";
         } else {
           swal({
             title: "FORGOT PASSWORD",

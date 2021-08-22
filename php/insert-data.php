@@ -35,8 +35,8 @@
     }
 
     function sendMail($to, $fullName, $otp) {
-        $headers = "From: " . strip_tags("K.J Somaiya Polytechnic <jerryshah1004@gmail.com>") . "\r\n";
-        $headers .= "Reply-To: ". strip_tags("K.J Somaiya Polytechnic <jerryshah1004@gmail.com>") . "\r\n";
+        $headers = "From: " . strip_tags("K.J Somaiya Polytechnic <noreply.kjsp@gmail.com>") . "\r\n";
+        $headers .= "Reply-To: ". strip_tags("K.J Somaiya Polytechnic <noreply.kjsp@gmail.com>") . "\r\n";
         $headers .= "MIME-Version: 1.0\r\n";
         $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
         $subject = "Your OTP for creating account";

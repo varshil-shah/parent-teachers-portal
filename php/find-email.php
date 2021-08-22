@@ -13,7 +13,7 @@
             $update_query = mysqli_query($con, $update);
             $subject = "Forgot Password";
             $message = "Hello Mr/Mrs $fullName\nYour OTP to change password is $rand";
-            $from = "From: K.J Somaiya Polytechnic<jerryshah1004@gmail.com>";
+            $from = "From: K.J Somaiya Polytechnic<noreply.kjsp@gmail.com>";
             if($update_query && mail($email, $subject, $message, $from)) {
                 $_SESSION['forgotEmail'] = $email;
                 echo "success";

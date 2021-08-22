@@ -27,7 +27,7 @@
     }
 
     function sendMail($to, $title, $message, $teacherName, $date) {
-        $headers = "From: K.J Somaiya Polytechnic<jerryshah1004@gmail.com>\n";
+        $headers = "From: K.J Somaiya Polytechnic<noreply.kjsp@gmail.com>\n";
         $headers .= "MIME-Version: 1.0\r\n";
         $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
         $newMessage = '
@@ -38,7 +38,7 @@
                     <meta charset="UTF-8">
                     <meta http-equiv="X-UA-Compatible" content="IE=edge">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Mail Template</title>
+                    <title>New Notice</title>
                     <link rel="preconnect" href="https://fonts.googleapis.com">
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
                     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap" rel="stylesheet">

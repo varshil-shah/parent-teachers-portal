@@ -17,7 +17,7 @@
                     <p class="teacher">'.$row['fullName'].'</p>
                 </div>
                 <div class="card__details">
-                    <a class="download__pdf" href="../php/download.php?id='.$row['nid'].'">Attachments</a>
+                    <a class="download__pdf" href="php/download.php?id='.$row['nid'].'">Attachments</a>
                     '.checkRole($row).'
                 </div>
             </div>';
