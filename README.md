@@ -8,12 +8,22 @@ In this project, we have created a website that helps teachers send direct messa
 2. You have to create a database name "ptp" and upload the sql file provided.
 3. For sending mails, you have to configure 2 files which are located in php and sendmail folder, under xampp folder.
 4. Go to `C:/xampp/php/php.ini` file, open it in any code editor, edit the code as shown below:
-   ![config php.ini file](images/website-img/config-php-ini.PNG)
+   ```ini
+      SMTP=smtp.gmail.com
+      smtp_port=587
+      sendmail_from=YOUR-EMAIL-ADDRESS
+      sendmail_path ="\"C:\xampp\sendmail\sendmail.exe\" -t"
+   ```
 5. Go to `C:/xampp/sendmail/sendmail.ini` file, open it in any code editor, edit the code as shown below:
-   ![config sendmail.ini file](images/website-img/config-sendmail-ini-1.PNG)
-   ![config sendmail.ini file](images/website-img/config-sendmail-ini-2.PNG)
-   ![config sendmail.ini file](images/website-img/config-sendmail-ini-3.PNG)
-   ![config sendmail.ini file](images/website-img/config-sendmail-ini-4.PNG)
+   ```ini
+      SMTP=smtp.gmail.com
+      smtp_port=587
+      error_logfile=error.log
+      debug_logfile=debug.log
+      auth_username=YOUR-EMAIL-ADDRESS
+      auth_password=YOUR-EMAIL-ADRESS-PASSWORD
+      force_sender=YOUR-EMAIL-ADDRESS
+   ```
 6. Now, you have to make that gmail account less secure so that php can use that to send mails.
 7. Last step, some of the php files you have to configure all "YOUR-EMAIL-ADDRESS" text to your particular email-address.
 
