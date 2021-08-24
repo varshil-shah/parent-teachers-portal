@@ -29,6 +29,7 @@
                 <div class="formBx">
                     <form action="#" method="POST">
                         <h3 class="logo">Somaiya Polytechnic</h3>
+                        <p class="notify">If you haven't found mail, please check under spam folder</p>
                         <h2>VERIFY OTP</h2>
                         <input required type="number" placeholder="Enter 6 digit OTP" name="otp">
                         <input type="submit" value="Verify OTP" class="otpButton">

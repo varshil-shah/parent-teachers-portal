@@ -57,7 +57,7 @@
 
                         <a href="./main.php?page=defaulters" class="nav__link">
                             <i class="fas fa-ban nav__icon"></i>
-                            <span class="nav__name">Defaulters</span>
+                            <span class="nav__name">Defaulters List</span>
                         </a>
 
                         <a href="./main.php?page=notices" class="nav__link">
@@ -66,8 +66,17 @@
                         </a>
 
                         <a href="./main.php?page=test_marks" class="nav__link">
-                            <i class="fas fa-book nav__icon"></i>
+                            <i class="fas fa-file-alt nav__icon"></i>
                             <span class="nav__name">Test Marks</span>
+                        </a>
+
+                        <a id="time-table" class="nav__link">
+                            <i class="fas fa-book nav__icon"></i>
+                            <span class="nav__name">Time Table <i class="fas fa-chevron-down sub-icon" style="margin-left: 10px;"></i></span>
+                            <div class="sub-menu">
+                                <a href="./main.php?page=time_table&forPage=class" class="sub__menu__item">Class</a>
+                                <a href="./main.php?page=time_table&forPage=exam" class="sub__menu__item">Exam</a>
+                            </div>
                         </a>
                         
                         <?php
@@ -124,15 +133,31 @@
                 <textarea required name="message" id="message" placeholder="Type your message..." name="message" id="" cols="10"
                     rows="5"></textarea>
             </div>
-            <div class="form__control">
-                <label for="">Notice type</label>
-                <select required name="notice_type" id="noticeType">
-                    <option value="announcements">Accouncement</option>
-                    <option value="defaulters">Defaulters</option>
-                    <option value="notices">Notice</option>
-                    <option value="test_marks">Test marks</option>
-                </select>
-            </div>
+            <?php
+                if(removeSpecialCharacters() === 'Time Table') {
+                    ?>
+                        <div class="form__control">
+                            <label for="">Notice For</label>
+                            <select required name="notice_type" id="noticeType">
+                                <option value="class">Class</option>
+                                <option value="exam">Exam</option>
+                            </select>
+                        </div>
+                    <?php
+                }else {
+                    ?>
+                        <div class="form__control">
+                            <label for="">Notice type</label>
+                            <select required name="notice_type" id="noticeType">
+                                <option value="announcements">Accouncement</option>
+                                <option value="defaulters">Defaulters</option>
+                                <option value="notices">Notice</option>
+                                <option value="test_marks">Test marks</option>
+                            </select>
+                        </div>
+                    <?php
+                }
+            ?>
             <div class="form__control">
                 <label for="myFile">Attach your PDF file</label>
                 <input type="file" name="my_file" id="myFile">

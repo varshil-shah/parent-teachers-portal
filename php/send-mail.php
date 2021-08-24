@@ -27,7 +27,7 @@
     }
 
     function sendMail($to, $title, $message, $teacherName, $date) {
-        $headers = "From: K.J Somaiya Polytechnic<YOUR-EMAIL-ADDRESS>\n";
+        $headers = "From: K.J Somaiya Polytechnic<noreply.kjsp@gmail.com>\n";
         $headers .= "MIME-Version: 1.0\r\n";
         $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
         $newMessage = '

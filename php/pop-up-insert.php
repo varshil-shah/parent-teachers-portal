@@ -20,8 +20,13 @@
                 $new_file_name = time().$file_name;
                 $date = date("j M, Y");
                 if(move_uploaded_file($tmp_name,"uploads/".$new_file_name)) {
-                    $insert = "INSERT INTO notice(uniqueId,title,message,date, pdfFile, pageName)
-                    VALUES('$uniqueId','$title','$message','$date','$new_file_name','$noticeType')";
+                    if($noticeType === 'class' || $noticeType === 'exam') {
+                        $insert = "INSERT INTO notice(uniqueId,title,message,date, pdfFile, pageName, forPage)
+                        VALUES('$uniqueId','$title','$message','$date','$new_file_name','time_table','$noticeType')";
+                    }else {
+                        $insert = "INSERT INTO notice(uniqueId,title,message,date, pdfFile, pageName)
+                        VALUES('$uniqueId','$title','$message','$date','$new_file_name','$noticeType')";
+                    }
                     $insert_query = mysqli_query($con, $insert);
                     if($insert_query) {
                         echo "Notice added successfully";

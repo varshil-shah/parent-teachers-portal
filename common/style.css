@@ -151,7 +151,7 @@ img {
 }
 
 .nav__items {
-  row-gap: 1.5rem;
+  row-gap: 1.4rem;
 }
 
 .nav__subtitle {
@@ -219,6 +219,32 @@ img {
 .nav__name,
 .nav__icon {
   color: #fff;
+}
+
+/* SUB-MENU */
+.sub-menu {
+  display: none;
+  margin-left: 68px;
+}
+
+.sub-menu .sub__menu__item {
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 5px 0;
+  transition: all 1s ease-in;
+}
+
+.sub-menu.active {
+  display: grid;
+}
+
+.sub-icon.active::before {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  content: "\f077";
+  transform: rotate(180deg);
 }
 
 .header {
@@ -705,6 +731,11 @@ img {
 
   .send__mail__container {
     display: block;
+  }
+
+  .overlay,
+  .overlay2 {
+    height: auto;
   }
 }
 

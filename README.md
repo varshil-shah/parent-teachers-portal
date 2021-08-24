@@ -31,10 +31,10 @@ In this project, we have created a website that helps teachers send direct messa
 1. Complete form validation and authentication.
 2. If the user forgets the password, added forgot-password form to reset the password.
 3. Password is stored in encrypted format.
-4. Notices we be refresh automatically after 2mins with reloading the page.
+4. Notices we be refresh automatically after 2 mins without reloading the page.
 5. Dynamic search bar.
 6. Easy to use and best user experience.
 
-## About creator
+## 👨‍💻 About creator
 ### Varshil Shah
 Feel free to mail me at my email address [varshilshah1004@gmail.com](mailto:varshilshah1004@gmail.com) for any queries.

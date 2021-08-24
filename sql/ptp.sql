@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2021 at 08:44 PM
+-- Generation Time: Aug 24, 2021 at 09:14 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.3.23
 SET
@@ -31,8 +31,6 @@ SET
     `date` varchar(255) NOT NULL
   ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 --
-  -- Dumping data for table `email_send`
-  --
   -- --------------------------------------------------------
   --
   -- Table structure for table `notice`
@@ -44,12 +42,10 @@ SET
     `message` varchar(2000) NOT NULL,
     `date` varchar(255) NOT NULL,
     `pdfFile` varchar(255) NOT NULL,
-    `pageName` varchar(255) NOT NULL
+    `pageName` varchar(255) NOT NULL,
+    `forPage` varchar(255) DEFAULT NULL
   ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
---
-  -- Dumping data for table `notice`
-  --
-  -- --------------------------------------------------------
+-- --------------------------------------------------------
   --
   -- Table structure for table `signup`
   --
@@ -64,9 +60,6 @@ SET
     `status` varchar(255) NOT NULL
   ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 --
-  -- Dumping data for table `signup`
-  --
-  --
   -- Indexes for dumped tables
   --
   --
@@ -100,7 +93,7 @@ ALTER TABLE
   `email_send`
 MODIFY
   `id` int(255) NOT NULL AUTO_INCREMENT,
-  AUTO_INCREMENT = 19;
+  AUTO_INCREMENT = 23;
 --
   -- AUTO_INCREMENT for table `notice`
   --
@@ -108,7 +101,7 @@ ALTER TABLE
   `notice`
 MODIFY
   `nid` int(255) NOT NULL AUTO_INCREMENT,
-  AUTO_INCREMENT = 2;
+  AUTO_INCREMENT = 7;
 --
   -- AUTO_INCREMENT for table `signup`
   --
@@ -116,7 +109,7 @@ ALTER TABLE
   `signup`
 MODIFY
   `id` int(255) NOT NULL AUTO_INCREMENT,
-  AUTO_INCREMENT = 4;
+  AUTO_INCREMENT = 7;
 COMMIT;
   /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
   /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

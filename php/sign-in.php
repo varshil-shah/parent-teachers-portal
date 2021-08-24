@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include_once '../php/config.php';
+    include_once './config.php';
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
 
@@ -11,13 +11,17 @@
             if(mysqli_num_rows($search_email_query) > 0) {
                 $row = mysqli_fetch_assoc($search_email_query);
                 $databasePassword = $row['password'];
-                if(password_verify($password, $databasePassword) && $row['status'] == 'active') {
-                    $_SESSION['role'] = $row['role'];
-                    $_SESSION['email'] = $row['email'];
-                    $_SESSION['uniqueId'] = $row['uniqueId'];
-                    echo 'success';
+                if(password_verify($password, $databasePassword) ) {
+                    if($row['status'] == 'active') {
+                        $_SESSION['role'] = $row['role'];
+                        $_SESSION['email'] = $row['email'];
+                        $_SESSION['uniqueId'] = $row['uniqueId'];
+                        echo 'success';
+                    }else {
+                        echo "You haven't verified your account";
+                    }
                 }else {
-                    echo "Password isn't matching or OTP is not verified";
+                    echo "Password isn't matching";
                 }
             }else {
                 echo 'Email not found in database';

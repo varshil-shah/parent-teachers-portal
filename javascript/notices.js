@@ -33,10 +33,15 @@ const refreshPage = () => {
     }
   };
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhr.send("page=" + page);
+  if (page === "time_table") {
+    let forPage = url.searchParams.get("forPage");
+    xhr.send("page=" + page + "&forPage=" + forPage);
+  } else {
+    xhr.send("page=" + page);
+  }
 };
 
-var interval = setInterval(refreshPage, 12000);
+var interval = setInterval(refreshPage, 60000);
 
 refreshPage();
 
@@ -90,13 +95,16 @@ searchBar.onkeyup = () => {
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   if (page === "mails") {
     xhr.send("search=" + searchValue);
+  } else if (page === "time_table") {
+    let forPage = url.searchParams.get("forPage");
+    xhr.send("search=" + searchValue + "&page=" + page + "&forPage=" + forPage);
   } else {
     xhr.send("search=" + searchValue + "&page=" + page);
   }
 };
 
 const setPageRefreshInterval = () => {
-  interval = setInterval(refreshPage, 12000);
+  interval = setInterval(refreshPage, 60000);
 };
 
 const clearPageRefreshInterval = () => {

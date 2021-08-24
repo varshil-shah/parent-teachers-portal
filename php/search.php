@@ -4,7 +4,12 @@
     include_once './common.php';
     $searchValue = mysqli_real_escape_string($con, $_POST['search']);
     $page = mysqli_real_escape_string($con, $_POST['page']);
-    $search = "SELECT * FROM notice WHERE title LIKE '%$searchValue%' AND pageName = '$page' ORDER BY notice.nid DESC";
+    if(isset($_POST['forPage'])) {
+        $forPage = $_POST['forPage'];
+        $search = "SELECT * FROM notice WHERE title LIKE '%$searchValue%' AND pageName = '$page' AND forPage = '$forPage' ORDER BY notice.nid DESC";
+    }else {
+        $search = "SELECT * FROM notice WHERE title LIKE '%$searchValue%' AND pageName = '$page' ORDER BY notice.nid DESC";
+    }
     $search_query = mysqli_query($con, $search);
     $result = "";
     if(mysqli_num_rows($search_query) > 0) {

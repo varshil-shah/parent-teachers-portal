@@ -2,8 +2,14 @@
     session_start();    
     include_once './config.php';
     $page = mysqli_real_escape_string($con, $_POST['page']);
-    $display = "SELECT * FROM notice n LEFT JOIN signup s ON n.uniqueId = s.uniqueId
-                WHERE pageName = '$page' ORDER BY n.nid DESC";
+    if(isset($_POST['forPage'])) {
+        $forPage = $_POST['forPage'];
+        $display = "SELECT * FROM notice n LEFT JOIN signup s ON n.uniqueId = s.uniqueId
+        WHERE pageName = '$page' AND forPage = '$forPage' ORDER BY n.nid DESC";
+    }else {
+        $display = "SELECT * FROM notice n LEFT JOIN signup s ON n.uniqueId = s.uniqueId
+        WHERE pageName = '$page' ORDER BY n.nid DESC";
+    }
     $display_query = mysqli_query($con, $display);
     $result = "";
     if(mysqli_num_rows($display_query) > 0) {

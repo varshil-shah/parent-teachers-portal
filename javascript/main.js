@@ -15,6 +15,11 @@ const messageLink = document.querySelector("#messageLink");
 const closeSendEmailButton = document.querySelector("#closeSendEmailButton");
 const displayUser = document.querySelector(".parents__name");
 
+// Sub menu
+const timeTableLink = document.querySelector("#time-table");
+const subMenu = document.querySelector(".sub-menu");
+const subIcon = document.querySelector(".sub-icon");
+
 const refreshUsers = () => {
   const xhr = new XMLHttpRequest();
   xhr.open("POST", "php/find-users.php", true);
@@ -51,6 +56,16 @@ const closeModal = (modalVariable, overlayVariable) => {
   modalVariable.classList.add("hidden");
   overlayVariable.classList.add("hidden");
 };
+
+try {
+  timeTableLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    subIcon.classList.toggle("active");
+    subMenu.classList.toggle("active");
+  });
+} catch (error) {
+  console.log(`Element not found: ${error}`);
+}
 
 try {
   openModalIcon.addEventListener("click", () => showModal(modal, overlay));
