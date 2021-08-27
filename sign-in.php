@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(isset($_SESSION['email'])) {
+        header('location: ./main.php?page=announcements');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +21,7 @@
         <div class="container">
             <div class="user signInBox">
                 <div class="imgBx">
-                    <img src="./images/login.jpg" alt="">
+                    <img src="./images/login-min.jpg" id="image" alt="">
                 </div>
                 <div class="formBx">
                     <form action="#" method="POST">
@@ -38,6 +44,15 @@
     </section>
     <script src="./javascript/eye-dropdown.js"></script>
     <script type="module" src="./javascript/signin.js"></script>
+    <script>
+        let compressImage = document.querySelector('#image');
+        let qualityImage = document.createElement('img');
+
+        qualityImage.src = './images/login.jpg';
+        qualityImage.onload = function() {
+            compressImage.src = this.src;
+        }
+    </script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>;
 </body>
 

@@ -24,7 +24,7 @@
         <div class="container">
             <div class="user signInBox">
                 <div class="imgBx">
-                    <img src="./images/login.jpg" alt="">
+                    <img src="./images/login-min.jpg" id="image" alt="">
                 </div>
                 <div class="formBx">
                     <form action="#" method="POST">
@@ -39,7 +39,15 @@
         </div>
         <div class="bg-balls"></div>
     </section>
+    <script>
+        let compressImage = document.querySelector('#image');
+        let qualityImage = document.createElement('img');
 
+        qualityImage.src = './images/login.jpg';
+        qualityImage.onload = function() {
+            compressImage.src = this.src;
+        }
+    </script>
     <script src="./javascript/otp.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>;
 </body>

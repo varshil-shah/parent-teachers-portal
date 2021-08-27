@@ -21,7 +21,7 @@
         <div class="container">
             <div class="user signInBox">
                 <div class="imgBx">
-                    <img src="./images/signup.jpg" alt="">
+                    <img src="./images/signup-min.jpg" id="image" alt="">
                 </div>
                 <div class="formBx">
                     <form method="POST" id="forgotPasswordForm">
@@ -38,6 +38,15 @@
         </div>
     </section>
     <div class="bg-balls"></div>
+    <script>
+        let compressImage = document.querySelector('#image');
+        let qualityImage = document.createElement('img');
+
+        qualityImage.src = './images/signup.jpg';
+        qualityImage.onload = function() {
+            compressImage.src = this.src;
+        }
+    </script>
     <script src="./javascript/update-password.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>

@@ -14,11 +14,21 @@
             $url = getCurrentUrl();
             $url_components = parse_url($url);
             parse_str($url_components['query'], $params);
-            return ucfirst($params['page']);
+            return $params['page'];
+        }
+
+        function getForPageName() {
+            $url = getCurrentUrl();
+            $url_components = parse_url($url);
+            parse_str($url_components['query'], $params);
+            if($params['page'] == 'time_table') {
+                return $params['forPage'];
+            }
+            return null;
         }
 
         function removeSpecialCharacters() {
-            $data = getName();
+            $data = ucfirst(getName());
             $new_data = str_replace('_',' ',$data);
             return ucwords($new_data);
         }

@@ -1,11 +1,20 @@
 <?php
     session_start();
+    include_once 'php/get-current-url.php';
+    $pageValue = array('announcements', 'defaulters', 'test_marks', 'notices', 'time_table', 'mails');
+    $forPage = array('class', 'exam');
     if(!isset($_SESSION['email'])) {
         ?>
             <script>
                 location.replace('./sign-in.php');
             </script>
         <?php
+    }
+    if(!in_array(getName(), $pageValue)) {
+        header('location: ./main.php?page=announcements');
+    }
+    if(getName() == 'time_table' && !(in_array(getForPageName(), $forPage))) {
+        header('location: ./main.php?page=time_table&forPage=class');
     }
 ?>
 
@@ -24,9 +33,9 @@
 <body>
     <header class="header">
         <div class="header__container">
-            <a href="#" class="header__logo logo">Somaiya</a>
+            <a href="./main.php?page=announcements" class="header__logo logo">Somaiya</a>
             <h3 class="page__name text__color">
-            <?php include './php/get-current-url.php'; echo removeSpecialCharacters(); ?> 
+            <?php echo removeSpecialCharacters(); ?> 
             Page</h3>
             <div class="header__search">
                 <input type="search" onfocus="clearPageRefreshInterval()" onchange="setPageRefreshIntervalIfSearchBarIsEmpty(event)" placeholder="Search" class="header__input">
@@ -35,7 +44,6 @@
 
             <div class="header__toggle">
                 <i class="fas fa-bars nav__icon" id="header-toggle"></i>
-
             </div>
         </div>
     </header>
@@ -43,7 +51,7 @@
     <div class="nav" id="navbar">
         <nav class="nav__container">
             <div class="">
-                <a href="#" class="nav__link nav__logo">
+                <a href="./main.php?page=announcements" class="nav__link nav__logo">
                     <i class="fas fa-university fa-2x text__color"></i>
                     <span class="nav__logo-name text__color">SOMAIYA</span>
                 </a>
@@ -74,8 +82,16 @@
                             <i class="fas fa-book nav__icon"></i>
                             <span class="nav__name">Time Table <i class="fas fa-chevron-down sub-icon" style="margin-left: 10px;"></i></span>
                             <div class="sub-menu">
-                                <a href="./main.php?page=time_table&forPage=class" class="sub__menu__item">Class</a>
-                                <a href="./main.php?page=time_table&forPage=exam" class="sub__menu__item">Exam</a>
+                                <!-- <a href="./main.php?page=time_table&forPage=class" class="sub__menu__item">Class</a>
+                                <a href="./main.php?page=time_table&forPage=exam" class="sub__menu__item">Exam</a> -->
+                                <a href="./main.php?page=time_table&forPage=class" class="sub__menu__item" style="margin-bottom: 15px;">
+                                    <i class="far fa-address-book nav__icon"></i>
+                                    <span class="nav__name">Class</span>
+                                </a>
+                                <a href="./main.php?page=time_table&forPage=exam" class="sub__menu__item">
+                                    <i class="far fa-clipboard nav__icon"></i>
+                                    <span class="nav__name">&nbsp;Exam</span>
+                                </a>
                             </div>
                         </a>
                         
