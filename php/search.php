@@ -2,6 +2,7 @@
     session_start();
     include_once './config.php';
     include_once './common.php';
+    include_once './encode-decode.php';
     $searchValue = mysqli_real_escape_string($con, $_POST['search']);
     $page = mysqli_real_escape_string($con, $_POST['page']);
     if(isset($_POST['forPage'])) {
@@ -16,8 +17,8 @@
         while($row = mysqli_fetch_assoc($search_query)) {
             $result .= '
             <div class="card">
-                <h4 class="card__header">'.$row["title"].'</h4>
-                <p class="card__msg">'.$row["message"].'</p>
+                <h4 class="card__header">'.decodeData($row["title"]).'</h4>
+                <p class="card__msg">'.decodeData($row["message"]).'</p>
                 <div class="card__details">
                     <p class="date">'.$row["date"].'</p>
                     <p class="teacher">'.getTeacherName($con, $row['uniqueId']).'</p>

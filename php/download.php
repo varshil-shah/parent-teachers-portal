@@ -19,9 +19,10 @@
     }
 
     function download($name) {
+        $new_file_name = substr($name, 10);
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename=' . basename($name));
+        header('Content-Disposition: attachment; filename=' . $new_file_name);
         header('Expires: 0');
         header('Cache-Control: must-revalidate');
         header('Pragma: public');

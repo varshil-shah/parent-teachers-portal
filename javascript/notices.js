@@ -9,6 +9,9 @@ const title = document.querySelector("#title");
 const message = document.querySelector("#message");
 const myFile = document.querySelector("#myFile");
 
+const inputField = document.querySelector("#title");
+const currentCharacters = document.getElementById("currentCharacters");
+
 form.onsubmit = (e) => {
   e.preventDefault();
   refreshPage();
@@ -41,7 +44,16 @@ const refreshPage = () => {
   }
 };
 
-var interval = setInterval(refreshPage, 60000);
+inputField.onkeyup = () => {
+  if (inputField.value.length == 40) {
+    currentCharacters.style.color = "crimson";
+  } else {
+    currentCharacters.style.color = "black";
+  }
+  currentCharacters.innerText = inputField.value.length;
+};
+
+var interval = setInterval(refreshPage, 1000);
 
 refreshPage();
 
@@ -104,7 +116,7 @@ searchBar.onkeyup = () => {
 };
 
 const setPageRefreshInterval = () => {
-  interval = setInterval(refreshPage, 60000);
+  interval = setInterval(refreshPage, 1000);
 };
 
 const clearPageRefreshInterval = () => {

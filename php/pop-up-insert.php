@@ -2,8 +2,9 @@
     session_start();
     date_default_timezone_set('Asia/Kolkata');
     include_once './config.php';
-    $title = mysqli_real_escape_string($con, $_POST['title']);
-    $message = mysqli_real_escape_string($con, $_POST['message']);
+    include_once './encode-decode.php';
+    $title = encodeData(mysqli_real_escape_string($con, $_POST['title']));
+    $message = encodeData(mysqli_real_escape_string($con, $_POST['message']));
     $uniqueId = $_SESSION['uniqueId'];
     $noticeType = mysqli_real_escape_string($con, $_POST['notice_type']);
     if(!empty($title) && !empty($message)) {
@@ -37,7 +38,7 @@
                     echo "Failed to add file at desired path!!";
                 }
             }else {
-                echo "Only PDF and Docs file are allowd!!";
+                echo "Only PDF and Docs file are allowed!!";
             }
         }else {
             echo "File is not set properly!!";

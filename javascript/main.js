@@ -57,6 +57,13 @@ const closeModal = (modalVariable, overlayVariable) => {
   overlayVariable.classList.add("hidden");
 };
 
+navbar.onmouseleave = () => {
+  if (subIcon.classList.contains("active")) {
+    subIcon.classList.remove("active");
+    subMenu.classList.remove("active");
+  }
+};
+
 try {
   timeTableLink.addEventListener("click", (e) => {
     e.preventDefault();

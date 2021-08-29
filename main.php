@@ -82,8 +82,6 @@
                             <i class="fas fa-book nav__icon"></i>
                             <span class="nav__name">Time Table <i class="fas fa-chevron-down sub-icon" style="margin-left: 10px;"></i></span>
                             <div class="sub-menu">
-                                <!-- <a href="./main.php?page=time_table&forPage=class" class="sub__menu__item">Class</a>
-                                <a href="./main.php?page=time_table&forPage=exam" class="sub__menu__item">Exam</a> -->
                                 <a href="./main.php?page=time_table&forPage=class" class="sub__menu__item" style="margin-bottom: 15px;">
                                     <i class="far fa-address-book nav__icon"></i>
                                     <span class="nav__name">Class</span>
@@ -142,7 +140,8 @@
         <form action="#" method="POST">
             <div class="form__control">
                 <label for="title">Title</label>
-                <input required type="text" name="title" id="title" placeholder="Enter your title">
+                <input maxlength="40" required type="text" name="title" id="title" placeholder="Enter your title">
+                <small class="showCharacters"><span id="currentCharacters">0</span>/<span id="remainingCharacters">40</span></small>
             </div>
             <div class="form__control">
                 <label for="message">Message</label>
@@ -187,12 +186,12 @@
     <div class="send__mail hidden">
         <div class="close__heading">
             <h3>Send email to recipient</h3>
+            <div id="loading"></div>
             <i class="fas fa-times" id="closeSendEmailButton"></i>
         </div>
         <div class="send__mail__container">
             <div class="formBx">
                 <form action="#" method="POST" id="sendEmailForm">
-                    <div id="loading"></div>
                     <div class="form__control">
                         <label for="title">Title</label>
                         <input required type="text" name="title" id="sendMailTitle" placeholder="Enter your title">
@@ -200,7 +199,7 @@
                     <div class="form__control">
                         <label for="message">Message</label>
                         <textarea required name="message" id="sendMailMessage" placeholder="Type your message..." name="message" id="" cols="10"
-                            rows="5"></textarea>
+                            rows="7"></textarea>
                     </div>
                     <button type="submit" class="post__button" id="sendEmailButton">SEND</button>
                 </form>
