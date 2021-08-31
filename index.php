@@ -61,7 +61,7 @@
     </script>
     <script src="./javascript/eye-dropdown.js"></script>
     <script src="./javascript/signup.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

@@ -2,12 +2,11 @@
     session_start();
     date_default_timezone_set('Asia/Kolkata');
     include_once './config.php';
-    include_once './encode-decode.php';
-    $title = encodeData(mysqli_real_escape_string($con, $_POST['title']));
-    $message = encodeData(mysqli_real_escape_string($con, $_POST['message']));
     $uniqueId = $_SESSION['uniqueId'];
     $noticeType = mysqli_real_escape_string($con, $_POST['notice_type']);
-    if(!empty($title) && !empty($message)) {
+    if(!empty($_POST['title']) && !empty($_POST['message'])) {
+        $title = mysqli_real_escape_string($con, $_POST['title']);
+        $message = mysqli_real_escape_string($con, $_POST['message']);
         if(isset($_FILES['my_file'])) {
             $file_name = $_FILES['my_file']['name'];
             $file_type = $_FILES['my_file']['type'];

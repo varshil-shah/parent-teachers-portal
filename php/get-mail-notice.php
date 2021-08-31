@@ -26,7 +26,7 @@
             }
         }
     }else {
-        $result .= '<h3 class="center">No Notice found !!</h3>';
+        $result .= "<h3 class='center'>You haven't received any mail from professor</h3>";
     }
     echo $result;
 ?>

@@ -43,8 +43,6 @@ function colorLink() {
   this.classList.add("active");
 }
 
-linkColor.forEach((l) => l.addEventListener("click", colorLink));
-
 // Modal
 
 const showModal = (modalVariable, overlayVariable) => {

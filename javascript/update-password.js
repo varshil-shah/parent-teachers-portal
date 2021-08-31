@@ -13,19 +13,17 @@ updatePassword.addEventListener("click", () => {
       if (xhr.status === 200) {
         const data = xhr.response;
         if (data === "Password has been updated successfully") {
-          setTimeout(() => {
-            swal({
-              title: "UPDATE PASSWORD",
-              text: data,
-              icon: "success",
-            });
-          }, 3000);
-          location.href = "sign-in.php";
+          Swal.fire({
+            icon: "success",
+            title: data,
+            showConfirmButton: false,
+            timer: 2000,
+          }).then(() => (location.href = "sign-in.php"));
         } else {
-          swal({
+          Swal.fire({
+            icon: "error",
             title: "UPDATE PASSWORD",
             text: data,
-            icon: "success",
           });
         }
       }

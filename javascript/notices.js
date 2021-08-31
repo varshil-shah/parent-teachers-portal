@@ -45,15 +45,13 @@ const refreshPage = () => {
 };
 
 inputField.onkeyup = () => {
-  if (inputField.value.length == 40) {
-    currentCharacters.style.color = "crimson";
-  } else {
-    currentCharacters.style.color = "black";
-  }
+  inputField.value.length == 50
+    ? (currentCharacters.style.color = "crimson")
+    : (currentCharacters.style.color = "black");
   currentCharacters.innerText = inputField.value.length;
 };
 
-var interval = setInterval(refreshPage, 1000);
+var interval = setInterval(refreshPage, 60000);
 
 refreshPage();
 
@@ -64,17 +62,17 @@ postButton.addEventListener("click", () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
         let data = xhr.response;
-        title.value = "";
-        message.value = "";
-        myFile.value = "";
-        modalForm.classList.add("hidden");
-        overlayForm.classList.add("hidden");
-        swal({
+        Swal.fire({
           title: "NOTICE MESSAGE",
           text: data,
           icon: data === "Notice added successfully" ? "success" : "error",
+        }).then(() => {
+          title.value = message.value = myFile.value = "";
+          modalForm.classList.add("hidden");
+          overlayForm.classList.add("hidden");
+          currentCharacters.innerText = 0;
+          refreshPage();
         });
-        refreshPage();
       }
     }
   };
@@ -116,7 +114,7 @@ searchBar.onkeyup = () => {
 };
 
 const setPageRefreshInterval = () => {
-  interval = setInterval(refreshPage, 1000);
+  interval = setInterval(refreshPage, 60000);
 };
 
 const clearPageRefreshInterval = () => {
@@ -132,21 +130,33 @@ const setPageRefreshIntervalIfSearchBarIsEmpty = (e) => {
 
 const handleNoticeDelete = (event, id) => {
   event.preventDefault();
-  const xhr = new XMLHttpRequest();
-  xhr.open("POST", "php/delete-notice.php", true);
-  xhr.onload = () => {
-    if (xhr.readyState === XMLHttpRequest.DONE) {
-      if (xhr.status === 200) {
-        const data = xhr.response;
-        swal({
-          title: "NOTICE MESSAGE",
-          text: data,
-          icon: data === "Notice has been deleted" ? "success" : "error",
-        });
-        refreshPage();
-      }
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "php/delete-notice.php", true);
+      xhr.onload = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 200) {
+            const data = xhr.response;
+            Swal.fire({
+              title: "NOTICE MESSAGE",
+              text: data,
+              icon: data === "Notice has been deleted" ? "success" : "error",
+            });
+            refreshPage();
+          }
+        }
+      };
+      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhr.send("id=" + id);
     }
-  };
-  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhr.send("id=" + id);
+  });
 };

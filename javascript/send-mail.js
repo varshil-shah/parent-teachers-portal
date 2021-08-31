@@ -22,7 +22,7 @@ sendEmailButton.addEventListener("click", (e) => {
         const data = xhr.response;
         sendMailTitle.value = "";
         sendMailMessage.value = "";
-        swal({
+        Swal.fire({
           title: "SEND MAIL",
           text: data,
           icon: data === "Mail send successfully" ? "success" : "error",

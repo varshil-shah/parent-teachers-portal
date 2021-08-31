@@ -14,7 +14,7 @@
                 if(password_verify($password, $databasePassword) ) {
                     if($row['status'] == 'active') {
                         $_SESSION['role'] = $row['role'];
-                        $_SESSION['email'] = $row['email'];
+                        $_SESSION['email'] = $_SESSION['otpEmail'] = $row['email'];
                         $_SESSION['uniqueId'] = $row['uniqueId'];
                         echo 'success';
                     }else {

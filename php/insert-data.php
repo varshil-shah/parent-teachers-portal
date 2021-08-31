@@ -19,7 +19,7 @@
                 $insert_query = mysqli_query($con, $insert);
                 
                 if($insert_query && sendMail($email, $fullName, $otp)) {
-                    $_SESSION['email'] = $email;
+                    $_SESSION['email'] = $_SESSION['otpEmail'] = $row['email'];
                     $_SESSION['role'] = $role;
                     $_SESSION['uniqueId'] = $unique_id;
                     echo "success";

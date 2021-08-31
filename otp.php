@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(!isset($_SESSION['email'])) {
+    if(!isset($_SESSION['otpEmail'])) {
         ?>
             <script>
                 location.replace('./index.php');
@@ -24,7 +24,7 @@
         <div class="container">
             <div class="user signInBox">
                 <div class="imgBx">
-                    <img src="./images/login-min.jpg" id="image" alt="">
+                    <img src="./images/login-min.jpg" id="image" alt="Side Image">
                 </div>
                 <div class="formBx">
                     <form action="#" method="POST">
@@ -49,7 +49,7 @@
         }
     </script>
     <script src="./javascript/otp.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>;
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

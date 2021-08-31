@@ -17,10 +17,10 @@ loginButton.addEventListener("click", () => {
         if (data === "success") {
           location.href = "main.php?page=announcements";
         } else {
-          swal({
-            title: "SIGNIN MESSAGE",
-            text: data,
+          Swal.fire({
             icon: "error",
+            title: "SIGNIN PAGE",
+            text: data,
           });
         }
       }
@@ -29,27 +29,6 @@ loginButton.addEventListener("click", () => {
   let formData = new FormData(form);
   xhr.send(formData);
 });
-
-//WORKING:
-// loginButton.addEventListener("click", () => {
-//   fetch("php/sign-in.php", {
-//     body: new FormData(form),
-//     method: "POST",
-//   })
-//     .then((response) => response.text())
-//     .then((data) => {
-//       if (data === "success") {
-//         location.replace("user/main.php?page=announcements");
-//       } else {
-//         swal({
-//           title: "SIGNIN MESSAGE",
-//           text: data,
-//           icon: "error",
-//         });
-//       }
-//     })
-//     .catch((error) => console.log(error));
-// });
 
 let displayLoading = () => {
   loading.classList.add("display");

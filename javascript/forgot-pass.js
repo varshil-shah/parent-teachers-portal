@@ -16,7 +16,7 @@ sendForgotOtp.addEventListener("click", () => {
         if (data === "success") {
           location.href = "new-password.php";
         } else {
-          swal({
+          Swal.fire({
             title: "FORGOT PASSWORD",
             text: data,
             icon: "error",

@@ -15,7 +15,7 @@ otpButton.addEventListener("click", () => {
         if (data === "Valid OTP") {
           location.href = "main.php?page=announcements";
         } else {
-          swal({
+          Swal.fire({
             title: "OTP Verification",
             text: data,
             icon: "error",

@@ -1,7 +1,7 @@
 <?php
     session_start();
     include_once 'php/get-current-url.php';
-    $pageValue = array('announcements', 'defaulters', 'test_marks', 'notices', 'time_table', 'mails');
+    $pageValue = array('announcement', 'defaulters', 'test_marks', 'notices', 'time_table', 'mails');
     $forPage = array('class', 'exam');
     if(!isset($_SESSION['email'])) {
         ?>
@@ -11,7 +11,7 @@
         <?php
     }
     if(!in_array(getName(), $pageValue)) {
-        header('location: ./main.php?page=announcements');
+        header('location: ./main.php?page=announcement');
     }
     if(getName() == 'time_table' && !(in_array(getForPageName(), $forPage))) {
         header('location: ./main.php?page=time_table&forPage=class');
@@ -33,7 +33,7 @@
 <body>
     <header class="header">
         <div class="header__container">
-            <a href="./main.php?page=announcements" class="header__logo logo">Somaiya</a>
+            <a href="./main.php?page=announcement" class="header__logo logo">Somaiya</a>
             <h3 class="page__name text__color">
             <?php echo removeSpecialCharacters(); ?> 
             Page</h3>
@@ -51,14 +51,14 @@
     <div class="nav" id="navbar">
         <nav class="nav__container">
             <div class="">
-                <a href="./main.php?page=announcements" class="nav__link nav__logo">
+                <a href="./main.php?page=announcement" class="nav__link nav__logo">
                     <i class="fas fa-university fa-2x text__color"></i>
                     <span class="nav__logo-name text__color">SOMAIYA</span>
                 </a>
 
                 <div class="nav__list">
                     <div class="nav__items">
-                        <a href="./main.php?page=announcements" class="nav__link">
+                        <a href="./main.php?page=announcement" class="nav__link">
                             <i class="fas fa-bullhorn nav__icon"></i>
                             <span class="nav__name">Announcement</span>
                         </a>
@@ -140,8 +140,8 @@
         <form action="#" method="POST">
             <div class="form__control">
                 <label for="title">Title</label>
-                <input maxlength="40" required type="text" name="title" id="title" placeholder="Enter your title">
-                <small class="showCharacters"><span id="currentCharacters">0</span>/<span id="remainingCharacters">40</span></small>
+                <input maxlength="50" required type="text" name="title" id="title" placeholder="Enter your title">
+                <small class="showCharacters"><span id="currentCharacters">0</span>/<span id="remainingCharacters">50</span></small>
             </div>
             <div class="form__control">
                 <label for="message">Message</label>
@@ -164,7 +164,7 @@
                         <div class="form__control">
                             <label for="">Notice type</label>
                             <select required name="notice_type" id="noticeType">
-                                <option value="announcements">Accouncement</option>
+                                <option value="announcement">Accouncement</option>
                                 <option value="defaulters">Defaulters</option>
                                 <option value="notices">Notice</option>
                                 <option value="test_marks">Test marks</option>
@@ -224,7 +224,7 @@
     <script src="./javascript/main.js"></script>
     <script src="./javascript/notices.js"></script>
     <script src="./javascript/send-mail.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

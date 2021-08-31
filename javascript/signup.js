@@ -18,7 +18,7 @@ signupButton.addEventListener("click", () => {
         if (data === "success") {
           location.href = "otp.php";
         } else {
-          swal({
+          Swal.fire({
             title: "SIGNUP MESSAGE",
             text: data,
             icon: "error",

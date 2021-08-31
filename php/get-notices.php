@@ -1,6 +1,5 @@
 <?php
     session_start();
-    include_once './encode-decode.php';
     include_once './config.php';
     $page = mysqli_real_escape_string($con, $_POST['page']);
     if(isset($_POST['forPage'])) {
@@ -17,8 +16,8 @@
         while($row = mysqli_fetch_assoc($display_query)) {
             $result .= '
             <div class="card" onmouseover="clearPageRefreshInterval(this)" onmouseout="setPageRefreshInterval(this)">
-                <h4 class="card__header">'.decodeData($row["title"]).'</h4>
-                <p class="card__msg">'.decodeData($row["message"]).'</p>
+                <h4 class="card__header">'.$row["title"].'</h4>
+                <p class="card__msg">'.$row["message"].'</p>
                 <div class="card__details">
                     <p class="date">'.$row["date"].'</p>
                     <p class="teacher">'.$row['fullName'].'</p>
