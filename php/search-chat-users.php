@@ -9,7 +9,7 @@
         $currentUserRole = $role == 'teacher' ? 'parent' : 'teacher';
         $sql = "SELECT fullName, email, uniqueId FROM signup WHERE role = '$currentUserRole' AND fullName LIKE '%$search%';";
         $sql_query = mysqli_query($con, $sql);
-        if(mysqli_num_rows($sql_query) > 0){
+        if(mysqli_num_rows($sql_query) > 0 && !empty($search)){
             while($row = mysqli_fetch_assoc($sql_query)) {
                 $result .= '
                     <a href="chat.php?id='.$row['uniqueId'].'" class="user__link">

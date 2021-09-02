@@ -2,6 +2,7 @@
     session_start();
     include_once './config.php';
     $page = mysqli_real_escape_string($con, $_POST['page']);
+    // $page="announcement";
     if(isset($_POST['forPage'])) {
         $forPage = $_POST['forPage'];
         $display = "SELECT * FROM notice n LEFT JOIN signup s ON n.uniqueId = s.uniqueId

@@ -23,13 +23,12 @@
                                     <h5>'.$row['email'].'</h5>
                                 </div>
                             </div>
-                            <small class="status"></small>
                         </div>
                     </a>
                 ';
             }
         }else {
-            $result = 'No user found';
+            $result = '<p class="text">No user found</p>';
         }
     }else {
         header('location: ../sign-in.php');

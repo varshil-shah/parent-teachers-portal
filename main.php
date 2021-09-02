@@ -219,7 +219,6 @@
     <script src="./javascript/main.js"></script>
     <script src="./javascript/notices.js"></script>
     <script src="./javascript/send-mail.js"></script>
-    <script src="./javascript/chat.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
