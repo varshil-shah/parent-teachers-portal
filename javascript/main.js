@@ -62,18 +62,15 @@ navbar.onmouseleave = () => {
   }
 };
 
-try {
-  timeTableLink.addEventListener("click", (e) => {
-    e.preventDefault();
-    subIcon.classList.toggle("active");
-    subMenu.classList.toggle("active");
-  });
-} catch (error) {
-  console.log(`Element not found: ${error}`);
-}
+timeTableLink.addEventListener("click", (e) => {
+  e.preventDefault();
+  subIcon.classList.toggle("active");
+  subMenu.classList.toggle("active");
+});
 
 try {
   openModalIcon.addEventListener("click", () => showModal(modal, overlay));
+  closeModalIcon.addEventListener("click", () => closeModal(modal, overlay));
   messageLink.addEventListener("click", () => {
     refreshUsers();
     showModal(sendMail, overlay2);
@@ -81,7 +78,6 @@ try {
   closeSendEmailButton.addEventListener("click", () => {
     closeModal(sendMail, overlay2);
   });
-  closeModalIcon.addEventListener("click", () => closeModal(modal, overlay));
 } catch (error) {
   console.log(error.message);
 }

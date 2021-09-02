@@ -23,7 +23,7 @@
             echo "Email doesn't exists";
         }
     }else{
-        echo "Email field must be filled";
+        echo "Please enter a valid email";
     }
 
     function sendMail($to, $fullName, $otp) {

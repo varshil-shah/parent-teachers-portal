@@ -12,6 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./common/forms.css">
+    <link rel="icon" type="image/png" href="images/favicon.png" sizes="80x80">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <title>SIGN UP</title>
 </head>
@@ -32,7 +33,7 @@
                         <input required type="email" placeholder="Enter email address" name="email">
                         <div class="wrap-icons">
                             <input required type="password" placeholder="Enter password" name="password">
-                            <i class="fas fa-eye eye"></i>
+                            <small class="show-hide">🙈</small>
                         </div>
                         <div class="wrap-icons">
                             <select name="role">
@@ -49,7 +50,7 @@
             </div>
         </div>
     </section>
-    <div class="bg-balls"></div>`
+    <div class="bg-balls"></div>
     <script>
         let compressImage = document.querySelector('#image');
         let qualityImage = document.createElement('img');

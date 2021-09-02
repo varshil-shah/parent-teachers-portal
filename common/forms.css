@@ -141,15 +141,20 @@ section .container .user .formBx form .wrap-icons {
   position: relative;
 }
 
+section .container .user .formBx form .wrap-icons .show-hide {
+  cursor: pointer;
+  position: absolute;
+  top: 18%;
+  right: 3%;
+  font-size: 25px;
+}
+
 section .container .user .formBx form .wrap-icons i {
   cursor: pointer;
   position: absolute;
-  top: 35%;
-  right: 3%;
-}
-
-i.active::before {
-  content: "\f070";
+  top: 28%;
+  right: 5%;
+  font-size: 20px;
 }
 
 .formBx form .wrap-icons .drop-down.active::before {
@@ -260,6 +265,10 @@ section .container .user .formBx form .logo {
       height: 220px;
       top: -110px;
       left: -110px;
+    }
+
+    .logo {
+      font-size: 15px;
     }
   }
 }

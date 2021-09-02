@@ -25,6 +25,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/favicon.png" sizes="80x80">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="./common/style.css">
     <title>HOME</title>
@@ -68,11 +69,6 @@
                             <span class="nav__name">Defaulters List</span>
                         </a>
 
-                        <a href="./main.php?page=notices" class="nav__link">
-                            <i class="far fa-paper-plane nav__icon"></i>
-                            <span class="nav__name">Notice</span>
-                        </a>
-
                         <a href="./main.php?page=test_marks" class="nav__link">
                             <i class="fas fa-file-alt nav__icon"></i>
                             <span class="nav__name">Test Marks</span>
@@ -92,28 +88,27 @@
                                 </a>
                             </div>
                         </a>
-                        
-                        <?php
-                            if(isset($_SESSION['role']) && $_SESSION['role'] == 'teacher') {
-                            ?>
-                                <a class="nav__link" id="messageLink">
-                                    <i class="fas fa-comments nav__icon"></i>
-                                    <span class="nav__name">Message</span>
-                                </a>
-                            <?php
-                        }
-                        ?>
+
+                        <a class="nav__link" href="./display-users.php" id="chat" target="_blank">
+                            <i class="fas fa-comments nav__icon"></i>
+                            <span class="nav__name">Chat</span>
+                        </a>
 
                         <?php
-                            if(isset($_SESSION['role']) && $_SESSION['role'] == 'parent') {
-                            ?>
-                                <a href="./main.php?page=mails" class="nav__link">
-                                    <i class="fas fa-envelope-open-text nav__icon"></i>
-                                    <span class="nav__name">Mails</span>
-                                </a>
-                            <?php 
-                        }
+                            if(isset($_SESSION['role']) && $_SESSION['role'] == 'teacher') {
+                                ?>
+                                    <a class="nav__link" id="messageLink">
+                                        <i class="far fa-paper-plane nav__icon"></i>
+                                        <span class="nav__name">Message</span>
+                                    </a>
+                                <?php
+                            }
                         ?>
+
+                        <a href="./main.php?page=mails" class="nav__link">
+                            <i class="fas fa-envelope-open-text nav__icon"></i>
+                            <span class="nav__name">Mails</span>
+                        </a>
 
                         <a href="./php/logout.php" class="nav__link">
                             <i class="fas fa-sign-out-alt nav__icon"></i>
@@ -224,6 +219,7 @@
     <script src="./javascript/main.js"></script>
     <script src="./javascript/notices.js"></script>
     <script src="./javascript/send-mail.js"></script>
+    <script src="./javascript/chat.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 

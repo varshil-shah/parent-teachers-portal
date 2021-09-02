@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Merienda&family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: "Roboto", sans-serif; */
+  font-family: "Poppins", sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: #e83a59;
+}
+
+section .container {
+  position: relative;
+  width: 420px;
+  height: 560px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 3;
+}

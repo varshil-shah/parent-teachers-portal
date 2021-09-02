@@ -1,15 +1,15 @@
 const passwordField = document.querySelector("form input[type='password']");
-const icon = document.querySelector(".eye");
+const icon = document.querySelector(".show-hide");
 const dropDown = document.querySelector(".drop-down");
 const selectMenu = document.querySelector("select");
 
 icon.onclick = () => {
   if (passwordField.type === "password") {
     passwordField.type = "text";
-    icon.classList.add("active");
+    icon.textContent = "🙉";
   } else {
     passwordField.type = "password";
-    icon.classList.remove("active");
+    icon.textContent = "🙈";
   }
 };
 

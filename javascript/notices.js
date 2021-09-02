@@ -85,31 +85,35 @@ postButton.addEventListener("click", () => {
 const searchBar = document.querySelector(".header__input");
 searchBar.onkeyup = () => {
   let searchValue = searchBar.value.trim();
-  let currentUrl = window.location.href;
-  let url = new URL(currentUrl);
-  let page = url.searchParams.get("page");
-  const xhr = new XMLHttpRequest();
-  if (page === "mails") {
-    xhr.open("POST", "php/search-mails.php", true);
-  } else {
-    xhr.open("POST", "php/search.php", true);
-  }
-  xhr.onload = () => {
-    if (xhr.readyState === XMLHttpRequest.DONE) {
-      if (xhr.status === 200) {
-        let data = xhr.response;
-        cardContainer.innerHTML = data;
-      }
+  if (searchValue) {
+    let currentUrl = window.location.href;
+    let url = new URL(currentUrl);
+    let page = url.searchParams.get("page");
+    const xhr = new XMLHttpRequest();
+    if (page === "mails") {
+      xhr.open("POST", "php/search-mails.php", true);
+    } else {
+      xhr.open("POST", "php/search.php", true);
     }
-  };
-  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  if (page === "mails") {
-    xhr.send("search=" + searchValue);
-  } else if (page === "time_table") {
-    let forPage = url.searchParams.get("forPage");
-    xhr.send("search=" + searchValue + "&page=" + page + "&forPage=" + forPage);
-  } else {
-    xhr.send("search=" + searchValue + "&page=" + page);
+    xhr.onload = () => {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          let data = xhr.response;
+          cardContainer.innerHTML = data;
+        }
+      }
+    };
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    if (page === "mails") {
+      xhr.send("search=" + searchValue);
+    } else if (page === "time_table") {
+      let forPage = url.searchParams.get("forPage");
+      xhr.send(
+        "search=" + searchValue + "&page=" + page + "&forPage=" + forPage
+      );
+    } else {
+      xhr.send("search=" + searchValue + "&page=" + page);
+    }
   }
 };
 
