@@ -105,10 +105,16 @@
                             }
                         ?>
 
-                        <a href="./main.php?page=mails" class="nav__link">
-                            <i class="fas fa-envelope-open-text nav__icon"></i>
-                            <span class="nav__name">Mails</span>
-                        </a>
+                        <?php
+                            if(isset($_SESSION['role']) && $_SESSION['role'] == 'parent') {
+                                ?>
+                                    <a href="./main.php?page=mails" class="nav__link">
+                                        <i class="fas fa-envelope-open-text nav__icon"></i>
+                                        <span class="nav__name">Mails</span>
+                                    </a>
+                                <?php
+                            }
+                        ?>
 
                         <a href="./php/logout.php" class="nav__link">
                             <i class="fas fa-sign-out-alt nav__icon"></i>

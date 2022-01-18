@@ -24,10 +24,10 @@
                     echo "Password isn't matching";
                 }
             }else {
-                echo 'Email not found in database';
+                echo 'Email not found';
             }
         }else {
-            echo "Email not found !!";
+            echo "Please enter a valid email!";
         }
     }else {
         echo "No field should be empty";

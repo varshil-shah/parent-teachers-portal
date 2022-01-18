@@ -13,7 +13,7 @@
             if(mysqli_num_rows($email_search) > 0) {
                 echo "Email already exists";
             }else {
-                $encrypt_password = password_hash($password, PASSWORD_BCRYPT);
+                $encrypt_password = password_hash($password, PASSWORD_ARGON2ID);
                 $insert = "INSERT INTO signup(fullName, email, password, role, otp, uniqueId,status)
                 VALUES('$fullName','$email','$encrypt_password','$role','$otp','$unique_id','inactive')";
                 $insert_query = mysqli_query($con, $insert);
